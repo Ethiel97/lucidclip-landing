@@ -15,7 +15,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'LucidClip is the intelligent clipboard manager that remembers everything you copy. Search, organize, and sync your clipboard history across all your devices.'
+      content: 'A native desktop clipboard manager that turns every copy into an organized, searchable working memory, fast, quiet and built for focus'
     },
     {
       property: 'og:title',
@@ -23,7 +23,7 @@ useHead({
     },
     {
       property: 'og:description',
-      content: 'LucidClip is the intelligent clipboard manager that remembers everything you copy. Search, organize, and sync your clipboard history across all your devices.'
+      content: 'A native desktop clipboard manager that turns every copy into an organized, searchable working memory, fast, quiet and built for focus'
     },
     {
       property: 'og:type',
