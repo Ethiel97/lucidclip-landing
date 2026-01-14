@@ -114,7 +114,7 @@ export const landingContent: LandingContent = {
   hero: {
     headline: {primary: 'Your Clipboard,', secondary: 'Supercharged'},
     subheadline:
-      'A native desktop clipboard manager that turns every copy into an organized, searchable working memory—fast, quiet, and built for focus.',
+      'A native desktop clipboard manager that turns every copy into an organized, searchable working memory, fast, quiet, and built for focus.',
     cta: {
       primary: 'Join the Waitlist now',
       secondary: 'See it in action'

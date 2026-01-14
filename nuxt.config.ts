@@ -5,6 +5,16 @@ export default defineNuxtConfig({
   aos: {
     disable: 'mobile',
   },
+  ogImage: {
+    zeroRuntime: true,
+  },
+  nitro: {
+    prerender: {
+      autoSubfolderIndex: false,
+      crawlLinks: true,
+      routes: ['/']
+    }
+  },
   site: {
     url: 'https://lucidclip.app',
     name: 'LucidClip',
