@@ -1,20 +1,21 @@
 <script setup lang="ts">
-import { landingContent } from '#shared/content/landing'
+import {landingContent} from '#shared/content/landing'
 
-const { footer } = landingContent
+const {footer} = landingContent
 
 const handleFooterLinkClick = (href: string) => {
   if (href.startsWith('#')) {
     const el = document.querySelector(href)
     el?.scrollIntoView({behavior: 'smooth', block: 'start'})
-  }}
+  }
+}
 </script>
 
 <template>
   <footer class="relative bg-bg text-text-primary">
     <!-- subtle bottom wash -->
     <div class="pointer-events-none absolute inset-0">
-      <div class="absolute inset-0 bg-linear-to-b from-black/0 via-black/0 to-black/35" />
+      <div class="absolute inset-0 bg-linear-to-b from-black/0 via-black/0 to-black/35"/>
     </div>
 
     <div class="relative mx-auto max-w-6xl px-6 pt-16 pb-10 sm:pt-20">
@@ -26,7 +27,10 @@ const handleFooterLinkClick = (href: string) => {
             <div
               class="flex h-9 w-9 items-center justify-center rounded-xl bg-surface2 ring-1 ring-border-subtle/60"
             >
-              <Icon name="lucide:clipboard" class="h-5 w-5 text-primary" />
+
+              <NuxtImg format="webp" densities="1x 2x"
+                       src="/images/logo.png"
+                       alt="LucidClip Logo" class="h-5 w-5"/>
             </div>
 
             <span class="text-lg font-semibold">LucidClip</span>
@@ -63,7 +67,7 @@ const handleFooterLinkClick = (href: string) => {
       </div>
 
       <!-- Divider -->
-      <div class="mt-12 border-t border-border-subtle/60" />
+      <div class="mt-12 border-t border-border-subtle/60"/>
 
       <!-- Copyright -->
       <p class="mt-8 text-center text-sm text-textMuted">

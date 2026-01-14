@@ -14,12 +14,12 @@ const handleNavClick = (href: string) => {
   }
 }
 
-const openMobileMenu = ()=> {
-  mobileMenuOpen.value =true;
+const openMobileMenu = () => {
+  mobileMenuOpen.value = true;
 }
 
-const closeMobileMenu = ()=> {
-  mobileMenuOpen.value =false;
+const closeMobileMenu = () => {
+  mobileMenuOpen.value = false;
 }
 </script>
 
@@ -54,7 +54,9 @@ const closeMobileMenu = ()=> {
               bg-surface2/80 ring-1 ring-border-subtle/60
             "
           >
-            <Icon name="lucide:clipboard" class="h-5 w-5 text-primary"/>
+            <NuxtImg format="webp" densities="1x 2x"
+                     src="/images/logo.png"
+                     alt="LucidClip Logo" class="h-5 w-5"/>
           </div>
           <span class="text-lg font-semibold text-text-primary">
             {{ nav.logo }}
@@ -112,6 +114,6 @@ const closeMobileMenu = ()=> {
     </div>
 
     <!-- Mobile Menu -->
-          <MobileMenu :open="mobileMenuOpen" @close="closeMobileMenu"/>
+    <MobileMenu :open="mobileMenuOpen" @close="closeMobileMenu"/>
   </header>
 </template>

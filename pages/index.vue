@@ -4,6 +4,7 @@ import HeroSection from "~/sections/hero/HeroSection.vue";
 import FeaturesGrid from "~/sections/features/FeaturesGrid.vue";
 import ProSection from "~/sections/pro/ProSection.vue";
 import SecuritySection from "~/sections/privacy/PrivacySection.vue";
+import PrivacyPreviewSection from "~/sections/product-preview/PrivacyPreviewSection.vue";
 
 definePageMeta({
   layout: 'main-layout'
@@ -33,11 +34,10 @@ useHead({
 </script>
 
 <template>
-  <!--    <HeaderBar/>-->
-
   <main>
     <HeroSection/>
     <ProblemSolutionSection/>
+    <PrivacyPreviewSection/>
     <FeaturesGrid/>
     <ProSection/>
     <SecuritySection/>

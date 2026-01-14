@@ -35,7 +35,21 @@ export interface LandingContent {
       secondary: string
     }
     trustBullets: string[]
-  }
+  },
+  productPreview: {
+    badge?: string,
+    headline: { primary: string, secondary: string },
+    description: string,
+    bullets: string[],
+    footnote: string,
+    media: {
+      src: string,
+      alt: string
+      caption?: string
+    }
+
+  },
+
   problemSolution: {
     items: Array<ProblemSolutionItem>,
     headline: string,
@@ -91,24 +105,23 @@ export const landingContent: LandingContent = {
     logo: 'LucidClip',
     links: [
       {label: 'Features', href: '#features'},
+      {label: 'Preview', href: '#privacy-preview'},
       {label: 'Pro', href: '#pro'},
       {label: 'Privacy', href: '#privacy'}
     ],
     cta: 'Join the Waitlist'
   },
   hero: {
-    headline: {
-      primary: 'Your Clipboard,',
-      secondary: 'Supercharged'
-    },
-    subheadline: 'LucidClip turns every copy into an organized, searchable working memory—fast, quiet, and built for focus.',
+    headline: {primary: 'Your Clipboard,', secondary: 'Supercharged'},
+    subheadline:
+      'A native desktop clipboard manager that turns every copy into an organized, searchable working memory—fast, quiet, and built for focus.',
     cta: {
       primary: 'Join the Waitlist now',
       secondary: 'See it in action'
     },
     trustBullets: [
       'Local-first, privacy-minded',
-      'Built for developers & power users',
+      'Native desktop app (macOS, Windows)',
       'Instant search, zero friction'
     ]
   },
@@ -126,13 +139,12 @@ export const landingContent: LandingContent = {
         description: [
           'You copy something important.',
           "Five seconds later, it's gone.",
-          "Replaced by a random URL you didn't need.",
-          'You lose hours every week to this chaos.'
+          "Replaced by a random URL you didn't need."
         ],
         closingLine: {
-          text: 'You lose hours every week to this chaos',
+          text: 'You lose hours every week to this chaos.',
           emphasis: 'muted'
-        },
+        }
       },
       {
         label: 'The Solution',
@@ -141,19 +153,37 @@ export const landingContent: LandingContent = {
         title: 'An intelligent working memory',
         color: 'primary',
         description: [
-          'LucidClip remembers everything you copy.',
-          'Organized by context. Accessible in milliseconds.',
-          'Code stays with code. Links with links.',
-          'Your clipboard finally works for you.'
+          'LucidClip runs natively on your desktop, so it works at the system level.',
+          'It remembers everything you copy—organized by context.',
+          'Accessible in milliseconds. No hacks. No browser limits.'
         ],
         closingLine: {
-          text: 'Your clipboard finally works for you',
+          text: 'Your clipboard finally works for you.',
           emphasis: 'primary'
         }
       }
     ]
   },
 
+  productPreview: {
+    headline: {
+      primary: 'Exclude what should',
+      secondary: 'never be copied'
+    },
+    badge: 'Privacy by design',
+    description: "LucidClip runs locally on your desktop, giving you complete control over what gets tracked. Exclude password managers, private browsers, or any sensitive app with a single click.",
+    bullets: [
+      'Choose which apps to exclude',
+      'System-level privacy control',
+      'Runs entirely on your machine',
+    ],
+    media: {
+      src: '/images/app-exclusion.gif',
+      alt: 'LucidClip app exclusion workflow',
+      caption: 'System-level control, built for privacy'
+    },
+    footnote: "Local-first architecture means your clipboard data never leaves your machine unless you choose to sync."
+  },
 
   features: {
     headline: 'Features that get out of your way',
@@ -271,9 +301,9 @@ export const landingContent: LandingContent = {
         title: 'Product',
         items: [
           {label: 'Features', href: '#features'},
+          {label: 'Preview', href: '#privacy-preview'},
           {label: 'Pro', href: '#pro'},
-          {label: 'Privacy', href: '#privacy'},
-          // {label: 'Pricing', href: '#pricing'}
+          {label: 'Privacy', href: '#privacy'}
         ]
       },
       {

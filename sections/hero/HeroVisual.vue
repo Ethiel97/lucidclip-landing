@@ -9,11 +9,13 @@
     <!-- window container -->
     <div class="relative rounded-card bg-surface/0">
       <div class="overflow-hidden rounded-card bg-surface/5 border border-border-subtle/5">
-        <img
+        <NuxtImg
           src="/images/hero.png"
           alt="LucidClip preview"
           class="h-auto w-full object-cover"
-          loading="eager"
+          format="webp"
+          fetchpriority="high"
+          preload
         />
       </div>
     </div>

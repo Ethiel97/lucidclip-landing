@@ -3,6 +3,11 @@ import TrustBullets from "~/sections/hero/TrustBullets.vue";
 import {landingContent} from "#shared/content/landing";
 
 const {hero} = landingContent
+
+const scrollToSection = (section: string) => {
+  const element = document.querySelector(`#${section}`)
+  element?.scrollIntoView({behavior: 'smooth'})
+}
 </script>
 
 <template>
@@ -43,11 +48,11 @@ const {hero} = landingContent
             </UButton>
 
             <UButton
-
               size="xl"
               variant="soft"
               class="rounded-pill bg-surface2/80 text-text-primary ring-1 ring-border-subtle/60 px-6 py-3"
               icon="i-lucide-play"
+              @click="scrollToSection('privacy-preview')"
             >
               {{ hero.cta.secondary }}
             </UButton>

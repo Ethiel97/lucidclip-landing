@@ -41,7 +41,7 @@ const scrollToWaitlist = () => {
               {{ pro.headline }}
             </h2>
 
-            <p class="mt-4 text-base leading-relaxed text-text-secondary sm:text-lg">
+            <p class="mt-4 text-sm leading-relaxed text-text-secondary sm:text-lg">
               {{ pro.subheadline }}
             </p>
           </div>
