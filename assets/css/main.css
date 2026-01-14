@@ -3,6 +3,9 @@
 
 /* LucidClip Design System (CSS-first, Tailwind v4) */
 @theme static {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Geist', 'Inter', system-ui, sans-serif;
+
   /* Brand (Nuxt UI expects shades for semantic colors) */
   --color-primary-50: #f5f3ff;
   --color-primary-100: #edebff;

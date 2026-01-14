@@ -18,7 +18,7 @@ const {features} = landingContent
 
     <div class="relative mx-auto max-w-6xl px-6">
       <!-- Header -->
-      <div class="mx-auto max-w-3xl text-center">
+      <div class="mx-auto max-w-3xl text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
         <h2 class="text-3xl font-semibold tracking-tight text-text-primary sm:text-5xl">
           {{ features.headline }}
         </h2>
@@ -30,6 +30,9 @@ const {features} = landingContent
       <!-- Grid -->
       <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
         <FeatureCard
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          :data-aos-delay="index * 200"
           v-for="(feature, index) in features.items"
           :key="feature.title + index"
           :item="feature"

@@ -19,7 +19,10 @@ const {problemSolution} = landingContent
     <div class="relative mx-auto max-w-6xl px-6 py-28 lg:py-36">
       <div class="mx-auto grid max-w-5xl gap-10 lg:grid-cols-2 lg:gap-12">
         <ProblemSolutionCard
-          v-for="card in problemSolution.items"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          :data-aos-delay="index * 200"
+          v-for="(card, index) in problemSolution.items"
           :key="card.title"
           :model="card"
         />

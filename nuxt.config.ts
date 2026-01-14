@@ -2,7 +2,14 @@
 import {defineNuxtConfig} from 'nuxt/config'
 
 export default defineNuxtConfig({
-
+  aos: {
+    disable: 'mobile',
+  },
+  site: {
+    url: 'https://lucidclip.app',
+    name: 'LucidClip',
+    description: 'Your clipboard, supercharged. Modern desktop clipboard manager with a focus on privacy and security.',
+  },
   app: {
     head: {
       script: [
@@ -14,13 +21,7 @@ export default defineNuxtConfig({
       ]
     },
   },
-  modules: [
-    '@nuxt/eslint',
-    '@nuxt/ui',
-    '@nuxt/image',
-    '@nuxt/scripts',
-    '@pinia/nuxt',
-  ],
+  modules: ['@nuxt/eslint', '@nuxt/ui', '@nuxt/image', '@nuxt/scripts', '@pinia/nuxt', '@nuxtjs/seo', 'nuxt-aos'],
 
   components: {
     dirs: [

@@ -34,7 +34,7 @@ const scrollToWaitlist = () => {
       >
         <div class="px-8 py-12 sm:px-12 sm:py-14">
           <!-- Header -->
-          <div class="max-w-2xl">
+          <div class="max-w-2xl" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
             <ProBadge :label="pro.badge" class="mb-5"/>
 
             <h2 class="text-3xl font-semibold tracking-tight sm:text-5xl">
@@ -49,6 +49,9 @@ const scrollToWaitlist = () => {
           <!-- PRO cards -->
           <div class="mt-10 grid gap-6 md:grid-cols-3">
             <FeatureCard
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              :data-aos-delay="index * 200"
               v-for="(item, index) in pro.items"
               :key="index"
               :item="item"
@@ -56,7 +59,8 @@ const scrollToWaitlist = () => {
           </div>
 
           <!-- CTA -->
-          <div class="mt-12 flex flex-col items-center justify-center gap-3">
+          <div class="mt-12 flex flex-col items-center justify-center gap-3" data-aos="fade-up" data-aos-duration="1000"
+               data-aos-delay="200">
             <UButton
               color="primary"
               size="xl"

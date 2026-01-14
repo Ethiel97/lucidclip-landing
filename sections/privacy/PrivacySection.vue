@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { landingContent } from '#shared/content/landing'
+import {landingContent} from '#shared/content/landing'
 import FeatureCard from '~/sections/features/FeatureCard.vue'
 
-const { privacy } = landingContent
+const {privacy} = landingContent
 </script>
 
 <template>
@@ -13,12 +13,12 @@ const { privacy } = landingContent
         class="absolute left-1/2 -top-65 h-225 w-225 -translate-x-1/2 rounded-full blur-3xl opacity-30"
         style="background: radial-gradient(circle, rgba(97,95,255,.12), transparent 60%);"
       />
-      <div class="absolute inset-0 bg-linear-to-b from-black/0 via-black/0 to-black/35" />
+      <div class="absolute inset-0 bg-linear-to-b from-black/0 via-black/0 to-black/35"/>
     </div>
 
     <div class="relative mx-auto max-w-6xl px-6">
       <!-- Header -->
-      <div class="mx-auto max-w-3xl text-center">
+      <div class="mx-auto max-w-3xl text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
         <h2 class="text-3xl font-semibold tracking-tight text-text-primary sm:text-5xl">
           {{ privacy.headline }}
         </h2>
@@ -30,6 +30,9 @@ const { privacy } = landingContent
       <!-- Cards -->
       <div class="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-3 lg:gap-8">
         <FeatureCard
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          :data-aos-delay="index * 200"
           v-for="(feature, index) in privacy.features"
           :key="index"
           :item="feature"

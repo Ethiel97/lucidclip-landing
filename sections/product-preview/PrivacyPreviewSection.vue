@@ -21,6 +21,7 @@ const {productPreview} = landingContent
         <div>
           <!-- badge -->
           <div
+            data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200"
             v-if="productPreview.badge"
             class="inline-flex items-center gap-2 rounded-pill px-3 py-1 text-xs font-semibold
                    bg-primary/10 text-primary ring-1 ring-primary/20"
@@ -30,19 +31,22 @@ const {productPreview} = landingContent
           </div>
 
           <!-- headline -->
-          <h2 class="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+          <h2 data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200"
+              class="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
             <span class="block">{{ productPreview.headline.primary }}</span>
             <span class="block text-text-secondary">{{ productPreview.headline.secondary }}</span>
           </h2>
 
           <!-- description -->
-          <p class="mt-6 max-w-xl text-base leading-relaxed text-text-secondary sm:text-lg">
+          <p class="mt-6 max-w-xl text-base leading-relaxed text-text-secondary sm:text-lg"
+             data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
             {{ productPreview.description }}
           </p>
 
           <!-- bullets -->
           <ul class="mt-10 space-y-4">
-            <li v-for="b in productPreview.bullets" :key="b"
+            <li v-for="(b,index) in productPreview.bullets" :key="b"
+                data-aos="fade-right" data-aos-duration="1000" :data-aos-delay="index * 200"
                 class="flex items-start gap-3 text-base text-text-secondary">
               <span
                 class="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/15 ring-1 ring-emerald-500/25">
@@ -53,13 +57,14 @@ const {productPreview} = landingContent
           </ul>
 
           <!-- footnote -->
-          <p class="mt-10 max-w-xl text-sm italic leading-relaxed text-textMuted">
+          <p class="mt-10 max-w-xl text-sm italic leading-relaxed text-textMuted" data-aos="fade-right"
+             data-aos-duration="1000" data-aos-delay="400">
             {{ productPreview.footnote }}
           </p>
         </div>
 
         <!-- Right (preview) -->
-        <div class="relative">
+        <div class="relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
           <!-- glow -->
           <div
             class="pointer-events-none absolute -inset-10 rounded-[28px] blur-3xl opacity-60"

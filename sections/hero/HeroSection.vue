@@ -24,7 +24,8 @@ const scrollToSection = (section: string) => {
     <div class="relative mx-auto max-w-7xl px-12 md:px-4 py-20 lg:py-40">
       <div class="grid items-center gap-14 lg:grid-cols-2">
         <!-- Left -->
-        <div class="flex flex-col items-center lg:items-start">
+        <div class="flex flex-col items-center lg:items-start"
+             data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
           <h1 class="text-4xl md:text-6xl leading-[1.02] tracking-tight font-semibold lg:text-6xl xl:text-7xl">
             <span class="block">{{ hero.headline.primary }}</span>
             <span class="block text-text-secondary">{{ hero.headline.secondary }}.</span>
@@ -34,7 +35,8 @@ const scrollToSection = (section: string) => {
             {{ hero.subheadline }}
           </p>
 
-          <div class="mt-10 flex flex-wrap justify-center items-center gap-3">
+          <div class="mt-10 flex flex-wrap justify-center items-center gap-3"
+               data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
             <UButton
               data-tally-open="VLPL6y" data-tally-align-left="1" data-tally-overlay="1" data-tally-emoji-text="👋"
               data-tally-emoji-animation="heart-beat" data-tally-form-events-forwarding="1"
@@ -62,7 +64,7 @@ const scrollToSection = (section: string) => {
         </div>
 
         <!-- Right -->
-        <HeroVisual/>
+        <HeroVisual data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400"/>
       </div>
     </div>
   </section>
