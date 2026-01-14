@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+/* LucidClip Design System (CSS-first, Tailwind v4) */
+@theme static {
+  /* Brand (Nuxt UI expects shades for semantic colors) */
+  --color-primary-50: #f5f3ff;
+  --color-primary-100: #edebff;
+  --color-primary-200: #c2beff;
+  --color-primary-300: #9a8fff;
+  --color-primary-400: #7c6fff;
+  --color-primary-500: #615fff; /* AppColors.primary */
+  --color-primary-600: #4e4ccc;
+  --color-primary-700: #3b3999;
+  --color-primary-800: #2a286e;
+  --color-primary-900: #1c1b4a;
+  --color-primary-950: #11102e;
+
+  /* LucidClip surfaces */
+  --color-bg: #050509;
+  --color-sidebar: #060710;
+  --color-surface: #101118;
+  --color-surface2: #151620;
+  --color-border-subtle: #202131;
+
+  /* Text */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b4b5c4;
+  --color-text-muted: #7d7e8d;
+
+  /* Radius tokens */
+  --radius-card: 14px;
+  --radius-pill: 999px;
+}
+
+/* Map Nuxt UI semantic tokens to LucidClip */
+:root {
+  /* semantic colors (Nuxt UI uses these) */
+  --ui-primary: var(--ui-color-primary-500);
+
+  /* global radii */
+  --ui-radius: var(--radius-card);
+
+  /* backgrounds (dark-first) */
+  --ui-bg: var(--color-bg);
+  --ui-bg-elevated: var(--color-surface);
+  --ui-bg-accented: var(--color-surface2);
+
+  /* borders */
+  --ui-border: var(--color-border-subtle);
+
+  /* text tokens */
+  --ui-text: var(--color-text-primary);
+  --ui-text-highlighted: var(--color-text-primary);
+  --ui-text-muted: var(--color-text-secondary);
+  --ui-text-dimmed: var(--color-text-muted);
+}
+
+/* If you use color-mode, keep dark consistent */
+.dark {
+  --ui-primary: var(--ui-color-primary-500);
+}
+
+/* Optional: base page background */
+html, body {
+  background: var(--color-bg);
+
+  ::selection{
+    background-color: var(--ui-primary);
+    color: var(--ui-bg);
+  }
+}
