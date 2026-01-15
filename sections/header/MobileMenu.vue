@@ -63,7 +63,9 @@ const onAfterLeave = () => {
             <div class="flex items-center gap-3">
               <div
                 class="flex h-10 w-10 items-center justify-center rounded-xl bg-surface2/80 ring-1 ring-border-subtle/60">
-                <Icon name="lucide:clipboard" class="h-5 w-5 text-primary"/>
+                <NuxtImg format="webp" densities="1x 2x"
+                         src="/images/logo.png"
+                         alt="LucidClip Logo" class="h-5 w-5"/>
               </div>
               <span class="text-lg font-semibold text-text-primary">{{ nav.logo }}</span>
             </div>

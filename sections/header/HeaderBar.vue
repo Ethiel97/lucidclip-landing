@@ -14,10 +14,6 @@ const handleNavClick = (href: string) => {
   }
 }
 
-const openMobileMenu = () => {
-  mobileMenuOpen.value = true;
-}
-
 const closeMobileMenu = () => {
   mobileMenuOpen.value = false;
 }
@@ -94,7 +90,7 @@ const closeMobileMenu = () => {
           <UButton
             color="primary"
             size="lg"
-            class="rounded-pill md:px-6 md:py-3 font-semibold text-text-primary"
+            class="rounded-pill text-xs md:text-base md:px-6 md:py-3 font-semibold text-text-primary"
             data-tally-open="VLPL6y" data-tally-align-left="1" data-tally-overlay="1" data-tally-emoji-text="👋"
             data-tally-emoji-animation="heart-beat" data-tally-form-events-forwarding="1"
           >
