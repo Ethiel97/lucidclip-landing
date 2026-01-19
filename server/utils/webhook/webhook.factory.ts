@@ -1,7 +1,7 @@
-import {type CheckoutAdapter, PolarCheckoutAdapter} from "~/server/features/checkout";
+import { PolarCheckoutAdapter } from '~/server/features/checkout'
+import { useRuntimeConfig } from '#imports'
 
-
-export const createCheckoutAdapter = (): CheckoutAdapter => {
+export const createWebhookAdapter = (): WebhookAdapter => {
 
   const {
     polarCheckoutSuccessUrl,

@@ -85,6 +85,7 @@ export default defineNuxtConfig({
       polarServer: process.env.POLAR_SERVER || 'sandbox',
       polarCheckoutSuccessUrl: process.env.POLAR_SUCCESS_URL,
       polarReturnUrl: process.env.POLAR_RETURN_URL,
+    polarWebhookSecret: process.env.POLAR_WEBHOOK_SECRET,
   },
 
   compatibilityDate: '2025-01-15',
