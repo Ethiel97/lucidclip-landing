@@ -127,22 +127,24 @@ export const landingContent: LandingContent = {
   },
 
   problemSolution: {
-    headline: 'Why most clipboards fail',
-    subheadline: 'And how LucidClip fixes it.',
+    headline: 'Why most clipboards fall short',
+    subheadline: 'And what LucidClip does differently.',
     items: [
       {
         label: 'The Problem',
         tone: 'problem',
         icon: 'lucide:x',
-        title: 'Losing what you just copied',
+        title: 'A clipboard that works against you',
         color: 'error',
         description: [
-          'You copy something important.',
-          "Five seconds later, it's gone.",
-          "Replaced by a random URL you didn't need."
+          'macOS and Windows come with a basic clipboard.',
+          'It remembers almost nothing and gives you zero control.',
+          'What you copy is constantly overwritten, often without warning.',
+          'Third-party clipboard managers help, but rarely go far enough.',
+          'They lack fine-grained control, context awareness, and real privacy guarantees.'
         ],
         closingLine: {
-          text: 'You lose hours every week to this chaos.',
+          text: 'You waste time, lose data, and trust tools that were never designed for power users.',
           emphasis: 'muted'
         }
       },
@@ -150,15 +152,16 @@ export const landingContent: LandingContent = {
         label: 'The Solution',
         tone: 'solution',
         icon: 'lucide:sparkles',
-        title: 'An intelligent working memory',
+        title: 'A true system-level working memory',
         color: 'primary',
         description: [
-          'LucidClip runs natively on your desktop, so it works at the system level.',
-          'It remembers everything you copy—organized by context.',
-          'Accessible in milliseconds. No hacks. No browser limits.'
+          'LucidClip runs natively on your desktop, no browser hacks, no limitations.',
+          'It captures everything you copy and organizes it by context.',
+          'You decide what gets stored, what gets excluded, and what stays local.',
+          'Fast, predictable, and privacy-first by design.'
         ],
         closingLine: {
-          text: 'Your clipboard finally works for you.',
+          text: 'Your clipboard finally works for you—not the other way around.',
           emphasis: 'primary'
         }
       }

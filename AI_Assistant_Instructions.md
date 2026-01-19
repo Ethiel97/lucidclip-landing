@@ -51,12 +51,6 @@ Use /public/images/hero.png as the hero visual (mandatory).
 /shared/content/landing.ts:
 - export a typed object containing headlines, subheadlines, nav links, feature list, pro bullets, security copy, CTA copy.
 
-## Waitlist API
-Create server/api/waitlist.post.ts:
-- Validate email
-- Use a tiny repository abstraction in features/waitlist/server/waitlist.repo.ts (in-memory for now)
-- Return { ok: true } on success, { ok:false, message } on errors
-  Client store calls via $fetch, prevents duplicate submits while loading, shows Nuxt UI toast.
 
 ## Page composition
 pages/index.vue assembles:

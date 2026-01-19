@@ -20,7 +20,6 @@
           loading="lazy"
           fetchpriority="high"
           preload
-          placeholder="blur"
         />
       </div>
     </div>

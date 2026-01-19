@@ -1,14 +1,7 @@
 <script setup lang="ts">
-import {useWaitlistForm} from '../composables/useWaitlistForm'
 import {landingContent} from "#shared/content/landing";
 
 const {waitlist} = landingContent
-const {email, validationError, isLoading, handleSubmit} = useWaitlistForm()
-
-const onSubmit = async (e: Event) => {
-  e.preventDefault()
-  await handleSubmit()
-}
 </script>
 
 <template>

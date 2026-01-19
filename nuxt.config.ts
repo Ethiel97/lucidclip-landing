@@ -31,7 +31,21 @@ export default defineNuxtConfig({
       ]
     },
   },
-  modules: ['@nuxt/eslint', '@nuxt/ui', '@nuxt/image', '@nuxt/scripts', '@pinia/nuxt', '@nuxtjs/seo', 'nuxt-aos'],
+  plugins: [
+    // '~/plugins/pinia.client.ts',
+    // '~/plugins/pinia-ssr-fix.server.ts'
+  ],
+  modules: [
+    '@nuxt/eslint',
+    '@nuxt/ui',
+    '@nuxt/image',
+    '@nuxt/scripts',
+    '@pinia/nuxt',
+    '@nuxtjs/seo',
+    'nuxt-aos',
+    '@polar-sh/nuxt',
+    '@nuxtjs/supabase'
+  ],
 
   components: {
     dirs: [
@@ -55,11 +69,34 @@ export default defineNuxtConfig({
     }
   },
 
+  supabase: {
+    url: process.env.SUPABASE_URL,
+    key: process.env.SUPABASE_PUBLISHABLE_KEY,
+    redirect: false,
+    secretKey: process.env.SUPABASE_SECRET_KEY
+  },
+
   routeRules: {
     '/': {prerender: true}
   },
 
+  runtimeConfig: {
+      polarAccessToken: process.env.POLAR_ACCESS_TOKEN,
+      polarServer: process.env.POLAR_SERVER || 'sandbox',
+      polarCheckoutSuccessUrl: process.env.POLAR_SUCCESS_URL,
+      polarReturnUrl: process.env.POLAR_RETURN_URL,
+  },
+
   compatibilityDate: '2025-01-15',
+
+  vite: {
+    server: {
+      allowedHosts: [
+        '.ngrok-free.app',
+        'lucidclip.app'
+      ],
+    },
+  },
 
   eslint: {
     config: {

@@ -22,12 +22,16 @@
     "@nuxt/scripts": "0.13.2",
     "@nuxt/ui": "^4.3.0",
     "@nuxtjs/seo": "^3.3.0",
+    "@nuxtjs/supabase": "^2.0.3",
     "@pinia/nuxt": "^0.11.3",
+    "@polar-sh/nuxt": "^0.5.4",
+    "@polar-sh/sdk": "^0.42.2",
     "@unhead/vue": "^2.0.19",
     "nuxt": "^4.2.2",
     "nuxt-aos": "^1.2.5",
     "pinia": "^3.0.4",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "zod": "^4.3.5"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.12.1",
