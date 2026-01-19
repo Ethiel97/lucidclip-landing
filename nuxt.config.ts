@@ -5,6 +5,11 @@ export default defineNuxtConfig({
   aos: {
     disable: 'mobile',
   },
+  imports: {
+    dirs: [
+      '~/composables/'
+    ]
+  },
   ogImage: {
     zeroRuntime: true,
   },
@@ -50,7 +55,6 @@ export default defineNuxtConfig({
   components: {
     dirs: [
       '~/components',
-      '~/features/waitlist/components',
       '~/sections/'
     ], // This is where your feature components are located
   },

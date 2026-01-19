@@ -98,6 +98,27 @@ export interface LandingContent {
     }>
     copyright: string
   }
+
+  checkout: {
+    success: {
+      title: string
+      subtitle: string
+      message: string
+      primaryCtaLabel: string
+      secondaryCtaLabel: string
+      footerNote: string
+    }
+
+    failure: {
+      title: string
+      subtitle: string
+      message: string
+      primaryCtaLabel: string
+      secondaryCtaLabel: string
+      footerNote: string
+    }
+  }
+
 }
 
 export const landingContent: LandingContent = {
@@ -323,5 +344,25 @@ export const landingContent: LandingContent = {
       {icon: 'simple-icons:github', href: 'https://github.com/lucidclip', label: 'GitHub'}
     ],
     copyright: `© ${new Date().getFullYear()} LucidClip. All rights reserved.`
+  },
+  checkout: {
+    success: {
+      title: 'Subscription activated 🎉',
+      subtitle: 'You now have full access to LucidClip Pro.',
+      message: 'A confirmation email will be sent to you shortly with your subscription details.',
+      primaryCtaLabel: 'Open LucidClip',
+      secondaryCtaLabel: 'Back to website',
+      footerNote: 'You can close this page once the app opens.'
+    },
+
+    failure: {
+      title: 'Checkout canceled',
+      subtitle: 'No payment was made.',
+      message: 'To try again, return to LucidClip and restart the upgrade flow.',
+      primaryCtaLabel: 'Return to LucidClip',
+      secondaryCtaLabel: 'Back to website',
+      footerNote: 'You can close this page once the app opens.'
+    }
   }
+
 }
