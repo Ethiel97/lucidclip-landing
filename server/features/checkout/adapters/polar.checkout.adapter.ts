@@ -83,6 +83,7 @@ export class PolarCheckoutAdapter implements CheckoutAdapter, WebhookAdapter {
       // 1. Verify Signature
       let polarEvent: any;
       try {
+        // @ts-ignore
         polarEvent = validateEvent(rawBody, headers, this.config.polarWebhookSecret);
       } catch (err) {
         console.error("Webhook Verification Failed", err);
@@ -95,6 +96,7 @@ export class PolarCheckoutAdapter implements CheckoutAdapter, WebhookAdapter {
       const eventType = polarEvent.type;
 
       // 2. Idempotency Check
+      //@ts-ignore
       const {error: evErr} = await supabase.from("webhook_events").insert({
         provider: "polar",
         event_id: eventId,
@@ -151,9 +153,10 @@ export class PolarCheckoutAdapter implements CheckoutAdapter, WebhookAdapter {
       await this.markProcessed(supabase, eventId);
 
       return {ok: true, user_id: userId, status: subscription.status};
-    } catch (e) {
-      console.error("Webhook Error:", e);
-      return {ok: false, error: e.message || "Internal Error"};
+    } catch (error) {
+      console.error("Webhook Error:", error);
+      // @ts-ignore
+      return {ok: false, error: error.message || "Internal Error"};
     }
   }
 

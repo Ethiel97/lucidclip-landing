@@ -1,10 +1,7 @@
 //import everything from the checkout adapters
-import {
-  CheckoutAdapter,
-  CheckoutConfig,
-  createCheckoutAdapter,
-  PolarCheckoutAdapter
-} from "~/server/features/checkout/adapters";
+import type {CheckoutAdapter, CheckoutConfig} from "~/server/features/checkout/adapters";
+import {createCheckoutAdapter, PolarCheckoutAdapter} from "~/server/features/checkout/adapters";
+
 
 export {
   CheckoutConfig,
