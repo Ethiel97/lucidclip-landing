@@ -5,6 +5,7 @@ import {serverSupabaseClient, serverSupabaseServiceRole} from "#supabase/server"
 import type {WebhookAdapter} from "~/server/utils/webhook";
 import {validateEvent} from "@polar-sh/sdk/webhooks";
 import type {SupabaseClient} from "@supabase/supabase-js";
+import {CustomerPortalPayload} from "./checkout.adapter";
 
 export type polarServer = 'sandbox' | 'production'
 
@@ -26,6 +27,40 @@ export class PolarCheckoutAdapter implements CheckoutAdapter, WebhookAdapter {
       accessToken: this.config.accessToken,
       server: this.config.server,
     });
+  }
+
+  async getCustomerPortal(payload: CustomerPortalPayload) {
+
+    try {
+      const response = await this._polar.customers.list({
+        email: payload.customerEmail,
+      });
+
+      const customers = response.result.items;
+
+      if (customers.length === 0) {
+        throw new Error("Customer not found");
+      }
+
+      const portalSession = await this._polar.customerSessions.create({
+        customerId: customers[0].id,
+      });
+
+      return {
+        success: true,
+        data: {
+          url: portalSession.customerPortalUrl,
+          expiresAt: portalSession.expiresAt,
+        }
+      }
+    } catch (e: any) {
+      console.error("Failed to create customer portal session:", e);
+      return {
+        success: false,
+        error: e.message || "Internal error"
+      }
+    }
+
   }
 
 
