@@ -27,7 +27,13 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      script: []
+      script: [
+        {
+          src: 'https://tally.so/widgets/embed.js',
+          async: true,
+          type: 'text/javascript',
+        }
+      ]
     },
   },
   plugins: [

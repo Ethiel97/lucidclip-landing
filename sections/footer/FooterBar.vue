@@ -15,6 +15,10 @@ const handleFooterLinkClick = async (href: string) => {
     scrollToSection(href)
     return
   }
+  if (href.startsWith('mailto:')) {
+    window.location.href = href
+    return
+  }
   await navigateTo(href)
 }
 </script>

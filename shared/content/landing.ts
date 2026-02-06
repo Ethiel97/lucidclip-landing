@@ -172,6 +172,31 @@ export interface PrivacyPageContent {
   }
 }
 
+export interface AboutStoryContent {
+  title: string
+  paragraphs: string[]
+}
+
+export interface AboutFlutterContent {
+  title: string
+  paragraphs: string[]
+  listTitle: string
+  listItems: string[]
+}
+
+export interface AboutContent {
+  hero: {
+    title: string
+    subheadline: string
+  }
+  story: AboutStoryContent
+  philosophy: {
+    title: string
+    items: CardModel[]
+  }
+  builtWithFlutter: AboutFlutterContent
+}
+
 export interface LandingContent {
   nav: {
     logo: string
@@ -268,15 +293,18 @@ export interface LandingContent {
   download: DownloadContent
   comparison: ComparisonContent
   privacyPage: PrivacyPageContent
+  aboutPage: AboutContent
 }
 
 export const landingContent: LandingContent = {
   nav: {
     logo: 'LucidClip',
     links: [
-      {label: 'Download', href: '/download'},
+      {label: 'Home', href: '/'},
       {label: 'Pricing', href: '/pricing'},
-      {label: 'Privacy', href: '/privacy'}
+      {label: 'Download', href: '/download'},
+      {label: 'Privacy', href: '/privacy'},
+      {label: 'About', href: '/about'}
     ],
     cta: 'Get LucidClip'
   },
@@ -473,8 +501,9 @@ export const landingContent: LandingContent = {
         title: 'Company',
         items: [
           {label: 'Privacy', href: '/privacy'},
-          {label: 'Terms', href: '/terms'},
-          {label: 'Contact', href: '/contact'}
+          {label: 'About', href: '/about'},
+          // {label: 'Terms', href: '/terms'},
+          {label: 'Contact', href: 'mailto:support@lucidclip.app'}
         ]
       },
     ],
@@ -639,7 +668,7 @@ export const landingContent: LandingContent = {
             "We're working hard on bringing LucidClip to Windows. Native Windows support is in active development and will be available soon.",
           cta: {
             label: 'Coming Soon',
-            disabled: true
+            disabled: false
           },
           helper: 'Notify me when available →'
         }
@@ -827,6 +856,59 @@ export const landingContent: LandingContent = {
     disclaimer: {
       title: 'Important Disclaimer',
       body: "LucidClip is not designed to collect Personally Identifiable Information (PII) or secure sensitive data. While we take privacy seriously and implement app exclusions and local-first architecture, LucidClip is a productivity tool, not a security tool. Do not rely on LucidClip as your only line of defense for sensitive information. Always use dedicated password managers, encrypted vaults, and follow security best practices for handling confidential data."
+    }
+  },
+  aboutPage: {
+    hero: {
+      title: 'Built for people who live in the flow.',
+      subheadline: "LucidClip was born from a simple frustration: existing clipboard managers weren't built for clipboard-first workflows."
+    },
+    story: {
+      title: 'The Story',
+      paragraphs: [
+        "As developers and power users, we realized something fundamental: the clipboard isn't just a utility - it's working memory. When you're deep in flow state, your clipboard history becomes an extension of your thought process.",
+        'But existing tools treated the clipboard as an afterthought. They were launcher apps with clipboard features bolted on, or productivity suites trying to do everything. None of them asked: what if we built a tool solely focused on clipboard excellence?',
+        "LucidClip is the answer to that question. It's not trying to be your launcher, your window manager, or your everything-app. It's a specialist tool, designed by people who need clipboard history to work flawlessly, every single time."
+      ]
+    },
+    philosophy: {
+      title: 'Our Philosophy',
+      items: [
+        {
+          icon: 'lucide:target',
+          title: 'Do one thing well',
+          description: "We're not building a productivity suite. We're building the best clipboard manager, period. Every feature serves that singular goal."
+        },
+        {
+          icon: 'lucide:shield',
+          title: 'Privacy by default',
+          description: "Your clipboard data is sensitive. Local-first architecture isn't a feature - it's a requirement. We'll never compromise on privacy."
+        },
+        {
+          icon: 'lucide:code-2',
+          title: 'Built by engineers',
+          description: "LucidClip is built with Flutter, giving us true native performance on macOS. No Electron bloat. No web wrappers. Just fast, native code."
+        },
+        {
+          icon: 'lucide:sparkles',
+          title: 'Tools should disappear',
+          description: 'The best tools get out of your way. LucidClip lives in your menu bar, appears with a keystroke, and disappears when you are done.'
+        }
+      ]
+    },
+    builtWithFlutter: {
+      title: 'Built with Flutter',
+      paragraphs: [
+        "LucidClip is built with Flutter, Google's UI framework. This gives us the best of both worlds: native macOS performance with the ability to ship cross-platform in the future.",
+        "Flutter compiles to native code, so LucidClip feels like a true Mac app. No web views, no Electron bloat, no compromises. Just fast, responsive UI that respects your system resources."
+      ],
+      listTitle: 'Key technologies:',
+      listItems: [
+        'Flutter for native UI',
+        'SQLite for local database',
+        'macOS native APIs for clipboard monitoring',
+        'No external dependencies or cloud services'
+      ]
     }
   }
 

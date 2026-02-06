@@ -8,7 +8,7 @@ const iconForValue = (value: 'yes' | 'no') => (
 )
 
 const iconClassForValue = (value: 'yes' | 'no') => (
-  value === 'yes' ? 'text-primary' : 'text-text-muted'
+  value === 'yes' ? 'text-primary' : 'text-danger'
 )
 </script>
 
@@ -32,10 +32,12 @@ const iconClassForValue = (value: 'yes' | 'no') => (
         </p>
       </div>
 
-      <div class="mt-12 overflow-hidden rounded-[18px] border border-border-subtle/60 bg-linear-to-b from-surface/80 to-surface2/60 shadow-soft">
+      <div
+        class="mt-12 overflow-hidden rounded-[18px] border border-border-subtle/60 bg-linear-to-b from-surface/80 to-surface2/60 shadow-soft">
         <div class="overflow-x-auto">
           <div class="min-w-[720px]">
-            <div class="grid grid-cols-[1.6fr_repeat(3,1fr)] gap-4 border-b border-border-subtle/50 px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-text-muted">
+            <div
+              class="grid grid-cols-[1.6fr_repeat(3,1fr)] gap-4 border-b border-border-subtle/50 px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-text-muted">
               <div>{{ comparison.columns[0]?.label }}</div>
               <div class="text-center">
                 <div class="text-text-primary">{{ comparison.columns[1]?.label }}</div>
@@ -62,8 +64,9 @@ const iconClassForValue = (value: 'yes' | 'no') => (
                 :key="row.title + valueIndex"
                 class="flex items-center justify-center"
               >
-                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-surface2/80 ring-1 ring-border-subtle/60">
-                  <UIcon :name="iconForValue(value)" class="h-4 w-4" :class="iconClassForValue(value)" />
+                <span
+                  class="flex h-7 w-7 items-center justify-center rounded-full bg-surface2/80 ring-1 ring-border-subtle/60">
+                  <UIcon :name="iconForValue(value)" class="h-4 w-4" :class="iconClassForValue(value)"/>
                 </span>
               </div>
             </div>
