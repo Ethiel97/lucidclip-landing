@@ -17,6 +17,160 @@ export interface ProblemSolutionItem extends Omit<CardModel, 'description'> {
   }
 }
 
+export interface PricingCta {
+  label: string
+  href: string
+  variant?: 'primary' | 'soft'
+  helper?: string
+}
+
+export interface PricingPlan {
+  name: string
+  price: string
+  cadence: string
+  description: string
+  features: string[]
+  badge?: string
+  cta: PricingCta
+}
+
+export interface PricingFaqItem {
+  question: string
+  answer: string
+}
+
+export interface PricingContent {
+  hero: {
+    badge: string
+    headline: { primary: string; secondary: string }
+    subheadline: string
+    cta: {
+      primary: string
+      secondary: string
+    }
+    note: string
+  }
+  plans: {
+    headline: string
+    subheadline: string
+    items: PricingPlan[]
+    footnote: string
+  }
+  highlights: {
+    headline: string
+    subheadline: string
+    items: CardModel[]
+  }
+  faq: {
+    headline: string
+    subheadline: string
+    items: PricingFaqItem[]
+  }
+}
+
+export interface DownloadPlatformCta {
+  label: string
+  href?: string
+  disabled?: boolean
+}
+
+export interface DownloadPlatformCard {
+  id: 'macos' | 'windows'
+  title: string
+  subtitle: string
+  description?: string
+  bullets?: string[]
+  icon: string
+  cta: DownloadPlatformCta
+  footnote?: string
+  helper?: string
+}
+
+export interface DownloadRequirementGroup {
+  title: string
+  items: string[]
+}
+
+export interface DownloadInstallStep {
+  title: string
+  description: string
+  shortcut?: string
+  suffix?: string
+}
+
+export interface DownloadContent {
+  hero: {
+    title: string
+    subheadline: string
+  }
+  platforms: {
+    items: DownloadPlatformCard[]
+  }
+  requirements: {
+    title: string
+    items: DownloadRequirementGroup[]
+  }
+  installation: {
+    title: string
+    steps: DownloadInstallStep[]
+  }
+}
+
+export type ComparisonValue = 'yes' | 'no'
+
+export interface ComparisonColumn {
+  label: string
+  sublabel?: string
+}
+
+export interface ComparisonRow {
+  title: string
+  description: string
+  values: ComparisonValue[]
+}
+
+export interface ComparisonContent {
+  headline: string
+  subheadline: string
+  columns: ComparisonColumn[]
+  rows: ComparisonRow[]
+  footnote: string
+  cta: {
+    label: string
+    href: string
+  }
+}
+
+export interface PrivacyPageContent {
+  hero: {
+    badge: string
+    title: string
+    subheadline: string
+  }
+  protection: {
+    title: string
+    items: CardModel[]
+  }
+  localFirst: {
+    title: string
+    body: string[]
+    highlight: string
+  }
+  appExclusions: {
+    title: string
+    body: string[]
+    listTitle: string
+    listItems: string[]
+  }
+  neverDo: {
+    title: string
+    items: string[]
+  }
+  disclaimer: {
+    title: string
+    body: string
+  }
+}
 
 export interface LandingContent {
   nav: {
@@ -76,15 +230,6 @@ export interface LandingContent {
     subheadline: string
     features: Array<CardModel>
   },
-
-  waitlist: {
-    headline: string
-    subheadline: string
-    placeholder: string
-    cta: string
-    successTitle: string
-    successMessage: string
-  }
   footer: {
     tagline: string
     links: Array<{
@@ -119,25 +264,28 @@ export interface LandingContent {
     }
   }
 
+  pricing: PricingContent
+  download: DownloadContent
+  comparison: ComparisonContent
+  privacyPage: PrivacyPageContent
 }
 
 export const landingContent: LandingContent = {
   nav: {
     logo: 'LucidClip',
     links: [
-      {label: 'Features', href: '#features'},
-      {label: 'Preview', href: '#privacy-preview'},
-      {label: 'Pro', href: '#pro'},
-      {label: 'Privacy', href: '#privacy'}
+      {label: 'Download', href: '/download'},
+      {label: 'Pricing', href: '/pricing'},
+      {label: 'Privacy', href: '/privacy'}
     ],
-    cta: 'Join the Waitlist'
+    cta: 'Get LucidClip'
   },
   hero: {
     headline: {primary: 'Your Clipboard,', secondary: 'Supercharged'},
     subheadline:
       'A native desktop clipboard manager that turns every copy into an organized, searchable working memory, fast, quiet, and built for focus.',
     cta: {
-      primary: 'Join the Waitlist now',
+      primary: 'Get LucidClip',
       secondary: 'See it in action'
     },
     trustBullets: [
@@ -280,8 +428,8 @@ export const landingContent: LandingContent = {
       }
     ],
     cta: {
-      label: 'Get early Pro access',
-      helper: 'Priority invites for Pro waitlist members'
+      label: 'Upgrade to Pro',
+      helper: 'Download LucidClip to unlock Pro features'
     }
   },
 
@@ -310,24 +458,15 @@ export const landingContent: LandingContent = {
       }
     ]
   },
-  waitlist: {
-    headline: 'Ready to upgrade?',
-    subheadline: 'Join the waiting list for early access to LucidClip',
-    placeholder: 'Enter your email',
-    cta: 'Join Waitlist',
-    successTitle: "You're on the list!",
-    successMessage: "We'll send you an email when LucidClip is ready to download."
-  },
   footer: {
     tagline: 'An intelligent clipboard manager built for developers, creators, and power users who demand control and clarity.',
     links: [
       {
         title: 'Product',
         items: [
-          {label: 'Features', href: '#features'},
-          {label: 'Preview', href: '#privacy-preview'},
-          {label: 'Pro', href: '#pro'},
-          {label: 'Privacy', href: '#privacy'}
+          {label: 'Download', href: '/download'},
+          {label: 'Pricing', href: '/pricing'},
+          {label: 'Privacy', href: '/privacy'}
         ]
       },
       {
@@ -362,6 +501,332 @@ export const landingContent: LandingContent = {
       primaryCtaLabel: 'Return to LucidClip',
       secondaryCtaLabel: 'Back to website',
       footerNote: 'You can close this page once the app opens.'
+    }
+  },
+  pricing: {
+    hero: {
+      badge: 'Pricing',
+      headline: {
+        primary: 'Simple pricing',
+        secondary: 'for serious workflows'
+      },
+      subheadline: 'Start free, stay local-first, and upgrade when you need automation, exclusions, and sync.',
+      cta: {
+        primary: 'Download for macOS',
+        secondary: 'Compare plans'
+      },
+      note: 'Cancel anytime. No long-term contracts.'
+    },
+    plans: {
+      headline: 'Choose the plan that fits your flow',
+      subheadline: 'Every plan includes fast search, app-aware context, and privacy-first defaults.',
+      items: [
+        {
+          name: 'Free',
+          price: '$0',
+          cadence: 'forever',
+          description: 'All the essentials to replace your default clipboard.',
+          features: [
+            'Limited clipboard history',
+            'Instant search and filters',
+            'App-aware context',
+            'Local-only storage'
+          ],
+          cta: {
+            label: 'Download LucidClip',
+            href: '/download',
+            variant: 'soft',
+            helper: 'macOS download available now'
+          }
+        },
+        {
+          name: 'Pro',
+          price: '$6',
+          cadence: 'per month',
+          description: 'Advanced control, exclusions, and sync for power users.',
+          features: [
+            'Everything in Free, plus:',
+            'App exclusions and privacy zones',
+            'Pinned clips and tags',
+            'Sync across devices',
+            'Automation rules'
+          ],
+          badge: 'Most popular',
+          cta: {
+            label: 'Download LucidClip',
+            href: '/download',
+            variant: 'primary',
+            helper: 'Unlock advanced controls and sync'
+          }
+        }
+      ],
+      footnote: 'Annual billing and student discounts are coming soon.'
+    },
+    highlights: {
+      headline: 'Everything stays fast and private',
+      subheadline: 'Local-first architecture means your clipboard data is always yours.',
+      items: [
+        {
+          icon: 'lucide:hard-drive',
+          title: 'Local by default',
+          description: 'Your clipboard history stays on your device unless you enable sync.'
+        },
+        {
+          icon: 'lucide:lock',
+          title: 'Zero tracking',
+          description: 'No ads, no analytics, no hidden data collection.'
+        },
+        {
+          icon: 'lucide:zap',
+          title: 'Built for speed',
+          description: 'Instant search and clean UI so you can stay in flow.'
+        }
+      ]
+    },
+    faq: {
+      headline: 'Pricing FAQ',
+      subheadline: 'Answers to the questions we hear most.',
+      items: [
+        {
+          question: 'Is LucidClip free to start?',
+          answer: 'Yes. Free is available forever with core history and search.'
+        },
+        {
+          question: 'What platforms are supported?',
+          answer: 'LucidClip launches on macOS first, with Windows support in development.'
+        },
+        {
+          question: 'Can I cancel Pro anytime?',
+          answer: 'Absolutely. You can cancel from your account at any time.'
+        },
+        {
+          question: 'Is there a team plan?',
+          answer: 'Not at the moment. We are focused on Free and Pro for launch.'
+        }
+      ]
+    }
+  },
+  download: {
+    hero: {
+      title: 'Download LucidClip',
+      subheadline: 'Get started with your intelligent clipboard manager. Available for macOS, with Windows support coming soon.'
+    },
+    platforms: {
+      items: [
+        {
+          id: 'macos',
+          title: 'macOS',
+          subtitle: 'macOS 12.0 or later',
+          icon: 'lucide:apple',
+          bullets: [
+            'Native macOS performance',
+            'Universal app (Intel & Apple Silicon)',
+            'Keyboard shortcuts & menu bar access',
+            '~50MB download size'
+          ],
+          cta: {
+            label: 'Download for macOS',
+            href: 'https://downloads.updates.com/macos/lucidclip.dmg'
+          },
+          footnote: 'Version 1.0.0 • Released January 2026'
+        },
+        {
+          id: 'windows',
+          title: 'Windows',
+          subtitle: 'Coming soon',
+          icon: 'lucide:monitor',
+          description:
+            "We're working hard on bringing LucidClip to Windows. Native Windows support is in active development and will be available soon.",
+          cta: {
+            label: 'Coming Soon',
+            disabled: true
+          },
+          helper: 'Notify me when available →'
+        }
+      ]
+    },
+    requirements: {
+      title: 'System Requirements',
+      items: [
+        {
+          title: 'macOS',
+          items: [
+            'macOS 12.0 (Monterey) or later',
+            '50 MB available storage space',
+            'Internet connection for initial download',
+            'Recommended: 8GB RAM'
+          ]
+        },
+        {
+          title: 'Windows (Coming Soon)',
+          items: [
+            'Windows 10 or later',
+            '50 MB available storage space',
+            'Internet connection for initial download',
+            'Recommended: 8GB RAM'
+          ]
+        }
+      ]
+    },
+    installation: {
+      title: 'Quick Installation',
+      steps: [
+        {
+          title: 'Download the app',
+          description: 'Click the download button above to get the latest version for your platform.'
+        },
+        {
+          title: 'Open the installer',
+          description: 'Double-click the downloaded file and drag LucidClip to your Applications folder.'
+        },
+        {
+          title: 'Grant permissions',
+          description: 'Allow LucidClip to access your clipboard and accessibility when prompted. This is required for the app to function.'
+        },
+        {
+          title: "You're ready!",
+          description: 'Press',
+          shortcut: '⌘/Ctrl + Shift + L',
+          suffix: 'to open your clipboard history.'
+        }
+      ]
+    }
+  },
+  comparison: {
+    headline: 'Built for clipboard-first workflows',
+    subheadline:
+      'LucidClip is purpose-built for managing your working memory. Unlike general productivity tools, we focus solely on clipboard excellence.',
+    columns: [
+      {label: 'Feature'},
+      {label: 'LucidClip', sublabel: 'Clipboard-centric'},
+      {label: 'Raycast'},
+      {label: 'Alfred'}
+    ],
+    rows: [
+      {
+        title: 'Clipboard History',
+        description: 'Unlimited retention with exclusions',
+        values: ['yes', 'yes', 'yes']
+      },
+      {
+        title: 'App-Level Exclusions',
+        description: 'Block specific apps from clipboard history',
+        values: ['yes', 'no', 'no']
+      },
+      {
+        title: 'Retention Control',
+        description: 'Custom retention rules per item type',
+        values: ['yes', 'no', 'no']
+      },
+      {
+        title: 'Pin Important Items',
+        description: 'Never lose critical clipboard entries',
+        values: ['yes', 'yes', 'yes']
+      },
+      {
+        title: 'Configurable Incognito Mode',
+        description: 'Temporarily disable tracking with fine-grained controls',
+        values: ['yes', 'no', 'no']
+      },
+      {
+        title: 'Local-First Privacy',
+        description: '100% local storage, zero cloud sync by default',
+        values: ['yes', 'yes', 'yes']
+      },
+      {
+        title: 'Advanced Search',
+        description: 'Fuzzy search, filters, and fast navigation',
+        values: ['yes', 'yes', 'yes']
+      },
+      {
+        title: 'Code Snippet Intelligence',
+        description: 'Automatic language detection and formatted previews',
+        values: ['yes', 'no', 'no']
+      },
+      {
+        title: 'Clipboard as Working Memory',
+        description: 'Designed for long-term reuse, not just recall',
+        values: ['yes', 'no', 'no']
+      }
+    ],
+    footnote:
+      'Your clipboard is not temporary. It is your working memory.',
+    cta: {
+      label: 'Download LucidClip',
+      href: '/download'
+    }
+  },
+  privacyPage: {
+    hero: {
+      badge: 'Privacy-First Design',
+      title: 'Your clipboard, your data, your device.',
+      subheadline: 'LucidClip is built on a simple principle: clipboard data is sensitive, and it should never leave your device without your explicit permission.'
+    },
+    protection: {
+      title: 'How we protect your privacy',
+      items: [
+        {
+          icon: 'lucide:shield',
+          title: '100% Local-First',
+          description: 'All clipboard data stays on your device. We never see, access, or transmit your clipboard history to any server.'
+        },
+        {
+          icon: 'lucide:eye-off',
+          title: 'App Exclusions',
+          description: 'Exclude sensitive apps like password managers, banking apps, or any application from clipboard history entirely.'
+        },
+        {
+          icon: 'lucide:clock',
+          title: 'Retention Control',
+          description: 'Set custom retention periods. Delete clipboard data automatically after 1 day, 7 days, 30 days, or never.'
+        },
+        {
+          icon: 'lucide:ban',
+          title: 'Zero Tracking',
+          description: "No analytics. No crash reporting. No telemetry. We don't track how you use LucidClip or what you copy."
+        }
+      ]
+    },
+    localFirst: {
+      title: 'What does \"local-first\" mean?',
+      body: [
+        'Every feature in LucidClip works entirely on your device.',
+        "Your clipboard history is stored in a local database on your Mac. When you search, filter, or organize items, all processing happens on your device. No data is sent to our servers because we don't have your clipboard data.",
+        "Even optional features like sync (coming soon) will use end-to-end encryption, meaning we can't read your clipboard data even if we wanted to."
+      ],
+      highlight: 'Your clipboard is yours. Period.'
+    },
+    appExclusions: {
+      title: 'App Exclusions',
+      body: [
+        'Block specific apps from ever touching your clipboard history.',
+        'Copied a password from 1Password? Copied sensitive banking details? With app exclusions (Pro feature), you can tell LucidClip to ignore clipboard events from specific applications entirely.',
+        "When an excluded app is active, LucidClip won't monitor or save anything. It's like the app doesn't exist."
+      ],
+      listTitle: 'Common apps to exclude:',
+      listItems: [
+        'Password managers (1Password, LastPass, Bitwarden)',
+        'Banking & finance apps',
+        'Healthcare applications',
+        'Any app handling sensitive data'
+      ]
+    },
+    neverDo: {
+      title: 'What we never do',
+      items: [
+        'Upload your clipboard to the cloud',
+        'Share data with third parties',
+        'Track your usage patterns',
+        'Require account creation or login',
+        'Access your clipboard without permission',
+        'Sell your data or show ads',
+        'Store personally identifiable information',
+        'Phone home or check for updates without permission'
+      ]
+    },
+    disclaimer: {
+      title: 'Important Disclaimer',
+      body: "LucidClip is not designed to collect Personally Identifiable Information (PII) or secure sensitive data. While we take privacy seriously and implement app exclusions and local-first architecture, LucidClip is a productivity tool, not a security tool. Do not rely on LucidClip as your only line of defense for sensitive information. Always use dedicated password managers, encrypted vaults, and follow security best practices for handling confidential data."
     }
   }
 

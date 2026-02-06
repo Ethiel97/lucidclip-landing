@@ -1,13 +1,21 @@
 <script setup lang="ts">
 import {landingContent} from '#shared/content/landing'
+import {useScrollToSection} from '#shared/composables/useScrollToSection'
 
 const {footer} = landingContent
+const route = useRoute()
+const {scrollToSection} = useScrollToSection()
 
-const handleFooterLinkClick = (href: string) => {
+const handleFooterLinkClick = async (href: string) => {
   if (href.startsWith('#')) {
-    const el = document.querySelector(href)
-    el?.scrollIntoView({behavior: 'smooth', block: 'start'})
+    if (route.path !== '/') {
+      await navigateTo(`/${href}`)
+      return
+    }
+    scrollToSection(href)
+    return
   }
+  await navigateTo(href)
 }
 </script>
 
@@ -55,6 +63,7 @@ const handleFooterLinkClick = (href: string) => {
             <ul class="mt-4 space-y-3">
               <li v-for="link in group.items" :key="link.href">
                 <a
+                  :href="link.href"
                   @click.prevent="handleFooterLinkClick(link.href)"
                   class="text-sm text-text-muted hover:text-text-primary transition-colors"
                 >

@@ -38,13 +38,12 @@ const scrollToSection = (section: string) => {
           <div class="mt-10 flex flex-wrap justify-center items-center gap-3 group"
                data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
             <UButton
-              data-tally-open="VLPL6y" data-tally-align-left="1" data-tally-overlay="1" data-tally-emoji-text="👋"
-              data-tally-emoji-animation="heart-beat" data-tally-form-events-forwarding="1"
               size="xl"
               color="primary"
               class="rounded-pill px-6 py-3 font-medium text-text-primary text-center sm:text-start"
               icon="i-lucide-arrow-right"
               trailing
+              to="/download"
             >
               {{ hero.cta.primary }}
             </UButton>

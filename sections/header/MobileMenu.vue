@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {landingContent} from '#shared/content/landing'
+import {useScrollToSection} from '#shared/composables/useScrollToSection'
 
 const {nav} = landingContent
 
@@ -7,12 +8,25 @@ const props = defineProps<{ open: boolean }>()
 const emit = defineEmits<{ (e: 'close'): void }>()
 
 const close = () => emit('close')
+const route = useRoute()
+const {scrollToSection} = useScrollToSection()
 
-const handleNavClick = (href: string) => {
+const isActiveLink = (href: string) => {
+  const route = useRoute();
+  return route.path === href;
+}
+
+const handleNavClick = async (href: string) => {
   close()
   if (href.startsWith('#')) {
-    document.querySelector(href)?.scrollIntoView({behavior: 'smooth', block: 'start'})
+    if (route.path !== '/') {
+      await navigateTo(`/${href}`)
+      return
+    }
+    scrollToSection(href)
+    return
   }
+  await navigateTo(href)
 }
 
 const onKeydown = (e: KeyboardEvent) => {
@@ -85,6 +99,7 @@ const onAfterLeave = () => {
               :key="link.href"
               :href="link.href"
               class="block rounded-xl px-4 py-3 text-base text-text-secondary hover:bg-surface2/60 hover:text-text-primary transition"
+              :class="{ 'font-extrabold text-white scale-110': isActiveLink(link.href) }"
               @click.prevent="handleNavClick(link.href)"
             >
               {{ link.label }}
@@ -92,21 +107,16 @@ const onAfterLeave = () => {
           </nav>
 
           <div class="mt-auto border-t border-border-subtle/50 p-4">
-            <button
-              class="w-full rounded-pill bg-primary px-6 py-3 font-semibold text-white hover:opacity-95 transition"
-              data-tally-open="VLPL6y"
-              data-tally-align-left="1"
-              data-tally-overlay="1"
-              data-tally-emoji-text="👋"
-              data-tally-emoji-animation="heart-beat"
-              data-tally-form-events-forwarding="1"
+            <NuxtLink
+              class="block w-full rounded-pill bg-primary px-6 py-3 text-center font-semibold text-white hover:opacity-95 transition"
+              to="/download"
               @click="close"
             >
               {{ nav.cta }}
-            </button>
+            </NuxtLink>
 
             <p class="mt-3 text-center text-xs text-text-muted">
-              Priority invites for early users
+              Download the latest macOS build
             </p>
           </div>
         </aside>

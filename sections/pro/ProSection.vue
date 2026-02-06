@@ -5,9 +5,8 @@ import FeatureCard from "~/sections/features/FeatureCard.vue";
 
 const {pro} = landingContent
 
-const scrollToWaitlist = () => {
-  const element = document.querySelector('#waitlist')
-  element?.scrollIntoView({behavior: 'smooth'})
+const goToDownload = async () => {
+  await navigateTo('/download')
 }
 </script>
 
@@ -65,7 +64,7 @@ const scrollToWaitlist = () => {
               color="primary"
               size="xl"
               class="rounded-pill px-8 py-4 font-semibold text-text-primary"
-              @click="scrollToWaitlist"
+              @click="goToDownload"
             >
               {{ pro.cta.label }}
             </UButton>

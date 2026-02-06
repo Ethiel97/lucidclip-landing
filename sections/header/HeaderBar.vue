@@ -1,21 +1,36 @@
 <script setup lang="ts">
 import {landingContent} from '#shared/content/landing'
+import {useScrollToSection} from '#shared/composables/useScrollToSection'
 import MobileMenu from "~/sections/header/MobileMenu.vue";
 
 const {nav} = landingContent
 
 const mobileMenuOpen = ref(false)
+const route = useRoute()
+const {scrollToSection} = useScrollToSection()
 
-const handleNavClick = (href: string) => {
+const handleNavClick = async (href: string) => {
   mobileMenuOpen.value = false
   if (href.startsWith('#')) {
-    const el = document.querySelector(href)
-    el?.scrollIntoView({behavior: 'smooth', block: 'start'})
+    if (route.path !== '/') {
+      await navigateTo(`/${href}`)
+      return
+    }
+    scrollToSection(href)
+    return
   }
+  await navigateTo(href)
 }
 
 const closeMobileMenu = () => {
   mobileMenuOpen.value = false;
+}
+
+const isActiveLink = (href: string) => {
+
+  const route = useRoute();
+  return route.path === href;
+
 }
 </script>
 
@@ -60,12 +75,13 @@ const closeMobileMenu = () => {
         </a>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center gap-10">
+        <nav class="hidden md:flex items-center gap-10 transition-all duration-200">
           <a
             v-for="link in nav.links"
             :key="link.href"
             :href="link.href"
             class="text-sm text-text-secondary hover:text-text-primary transition-colors"
+            :class="{ 'font-extrabold text-white scale-110': isActiveLink(link.href) }"
             @click.prevent="handleNavClick(link.href)"
           >
             {{ link.label }}
@@ -75,11 +91,10 @@ const closeMobileMenu = () => {
         <!-- CTA Button (desktop) -->
         <div class="hidden md:flex items-center">
           <UButton
-            data-tally-open="VLPL6y" data-tally-align-left="1" data-tally-overlay="1" data-tally-emoji-text="👋"
-            data-tally-emoji-animation="heart-beat" data-tally-form-events-forwarding="1"
             color="primary"
             size="lg"
             class="rounded-pill px-6 py-3 font-semibold text-text-primary"
+            to="/download"
           >
             {{ nav.cta }}
           </UButton>
@@ -91,8 +106,7 @@ const closeMobileMenu = () => {
             color="primary"
             size="lg"
             class="rounded-pill text-xs md:text-base md:px-6 md:py-3 font-semibold text-text-primary"
-            data-tally-open="VLPL6y" data-tally-align-left="1" data-tally-overlay="1" data-tally-emoji-text="👋"
-            data-tally-emoji-animation="heart-beat" data-tally-form-events-forwarding="1"
+            to="/download"
           >
             {{ nav.cta }}
           </UButton>

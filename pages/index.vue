@@ -5,6 +5,7 @@ import FeaturesGrid from "~/sections/features/FeaturesGrid.vue";
 import ProSection from "~/sections/pro/ProSection.vue";
 import SecuritySection from "~/sections/privacy/PrivacySection.vue";
 import PrivacyPreviewSection from "~/sections/product-preview/PrivacyPreviewSection.vue";
+import ComparisonSection from "~/sections/comparison/ComparisonSection.vue";
 
 definePageMeta({
   layout: 'main-layout'
@@ -39,9 +40,9 @@ useHead({
     <ProblemSolutionSection/>
     <PrivacyPreviewSection/>
     <FeaturesGrid/>
+    <ComparisonSection/>
     <ProSection/>
     <SecuritySection/>
-    <WaitlistSection/>
   </main>
 
 
