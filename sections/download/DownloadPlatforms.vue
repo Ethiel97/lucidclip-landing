@@ -2,6 +2,39 @@
 import {landingContent} from '#shared/content/landing'
 
 const {download} = landingContent
+
+
+const {data: macosRelease} = await useFetch("/api/releases/macos", {
+  server: true,
+  default: () => null,
+});
+
+// only day month year
+const macosReleaseDate = macosRelease.value?.pubDate
+  ? new Date(macosRelease.value.pubDate).toLocaleDateString(undefined, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
+  : null;
+
+const macFootnote =
+  macosRelease.value?.version
+    ? `Version ${macosRelease.value.version} . Released on ${macosReleaseDate}`
+    : "Latest version";
+
+landingContent.download.platforms.items = landingContent.download.platforms.items.map((platform) => {
+  if (platform.id === "macos") {
+    return {
+      ...platform,
+      cta: {
+        ...platform.cta,
+      },
+      footnote: macFootnote,
+    };
+  }
+  return platform;
+})
 </script>
 
 <template>
@@ -30,7 +63,7 @@ const {download} = landingContent
               <div
                 class="flex h-11 w-11 items-center justify-center rounded-xl bg-surface2/80 ring-1 ring-border-subtle/60"
               >
-                <Icon :name="platform.icon" class="h-5 w-5 text-primary" />
+                <Icon :name="platform.icon" class="h-5 w-5 text-primary"/>
               </div>
               <div>
                 <h3 class="text-base font-semibold text-text-primary">
@@ -55,7 +88,7 @@ const {download} = landingContent
                 <span
                   class="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/30"
                 >
-                  <UIcon name="i-lucide-check" class="h-3.5 w-3.5 text-primary" />
+                  <UIcon name="i-lucide-check" class="h-3.5 w-3.5 text-primary"/>
                 </span>
                 <span>{{ bullet }}</span>
               </li>

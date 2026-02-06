@@ -626,7 +626,7 @@ export const landingContent: LandingContent = {
           ],
           cta: {
             label: 'Download for macOS',
-            href: 'https://downloads.updates.com/macos/lucidclip.dmg'
+            href: 'https://downloads.updates.com/macos/LucidClip-latest.dmg'
           },
           footnote: 'Version 1.0.0 • Released January 2026'
         },
