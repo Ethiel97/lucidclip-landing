@@ -655,7 +655,7 @@ export const landingContent: LandingContent = {
           ],
           cta: {
             label: 'Download for macOS',
-            href: 'https://downloads.updates.com/macos/LucidClip-latest.dmg'
+            href: 'https://downloads.lucidclip.app/macos/LucidClip-latest.dmg'
           },
           footnote: 'Version 1.0.0 • Released January 2026'
         },
@@ -681,7 +681,7 @@ export const landingContent: LandingContent = {
           title: 'macOS',
           items: [
             'macOS 12.0 (Monterey) or later',
-            '50 MB available storage space',
+            '100 MB available storage space',
             'Internet connection for initial download',
             'Recommended: 8GB RAM'
           ]
@@ -690,7 +690,7 @@ export const landingContent: LandingContent = {
           title: 'Windows (Coming Soon)',
           items: [
             'Windows 10 or later',
-            '50 MB available storage space',
+            '100 MB available storage space',
             'Internet connection for initial download',
             'Recommended: 8GB RAM'
           ]
