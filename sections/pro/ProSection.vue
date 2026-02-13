@@ -31,7 +31,7 @@ const goToDownload = async () => {
           shadow-soft
         "
       >
-        <div class="px-8 py-12 sm:px-12 sm:py-14">
+        <div class="px-6 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-14">
           <!-- Header -->
           <div class="max-w-2xl" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
             <ProBadge :label="pro.badge" class="mb-5"/>

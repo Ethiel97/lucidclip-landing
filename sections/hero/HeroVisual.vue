@@ -1,5 +1,5 @@
 <template>
-  <div class="relative mx-auto w-full max-w-160 ">
+  <div class="relative mx-auto w-full max-w-[520px] sm:max-w-[600px] lg:max-w-[720px]">
     <!-- glow behind the window -->
     <div
       class="pointer-events-none absolute -inset-10 rounded-[28px] blur-3xl opacity-60"

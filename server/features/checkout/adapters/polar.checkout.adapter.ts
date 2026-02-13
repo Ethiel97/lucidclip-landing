@@ -78,6 +78,7 @@ export class PolarCheckoutAdapter implements CheckoutAdapter, WebhookAdapter {
       // @ts-ignore
       const {error} = await supabase
         .from('checkout_sessions')
+        // @ts-ignore
         .upsert({
           polar_checkout_id: checkout.id,
           user_id: payload.metadata.supabaseUserId,

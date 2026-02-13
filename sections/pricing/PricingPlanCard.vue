@@ -41,7 +41,7 @@ const handleCta = () => emit('cta', props.plan.cta.href)
           {{ plan.name }}
         </p>
         <div class="mt-4 flex items-end gap-2">
-          <span class="text-4xl font-semibold text-text-primary">{{ plan.price }}</span>
+          <span class="text-3xl font-semibold text-text-primary sm:text-4xl">{{ plan.price }}</span>
           <span class="pb-1 text-sm text-text-secondary">{{ plan.cadence }}</span>
         </div>
       </div>

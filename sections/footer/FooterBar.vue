@@ -58,7 +58,7 @@ const handleFooterLinkClick = async (href: string) => {
           <div
             v-for="group in footer.links"
             :key="group.title"
-            class="min-w-45"
+            class="min-w-0 sm:min-w-45"
           >
             <h3 class="text-smd font-semibold text-text-primary">
               {{ group.title }}

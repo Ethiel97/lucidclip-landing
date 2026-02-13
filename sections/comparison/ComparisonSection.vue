@@ -35,7 +35,7 @@ const iconClassForValue = (value: 'yes' | 'no') => (
       <div
         class="mt-12 overflow-hidden rounded-[18px] border border-border-subtle/60 bg-linear-to-b from-surface/80 to-surface2/60 shadow-soft">
         <div class="overflow-x-auto">
-          <div class="min-w-[720px]">
+          <div class="min-w-[640px] sm:min-w-[720px]">
             <div
               class="grid grid-cols-[1.6fr_repeat(3,1fr)] gap-4 border-b border-border-subtle/50 px-6 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-text-muted">
               <div>{{ comparison.columns[0]?.label }}</div>

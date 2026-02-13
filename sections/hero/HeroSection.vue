@@ -21,8 +21,8 @@ const scrollToSection = (section: string) => {
       <div class="absolute inset-0 bg-linear-to-b from-black/0 via-black/0 to-black/30"/>
     </div>
 
-    <div class="relative mx-auto max-w-7xl px-12 md:px-4 py-20 lg:py-40">
-      <div class="grid items-center gap-14 lg:grid-cols-2">
+    <div class="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-10 py-16 sm:py-20 lg:py-32">
+      <div class="grid items-center gap-10 sm:gap-12 lg:gap-14 lg:grid-cols-2">
         <!-- Left -->
         <div class="flex flex-col items-center lg:items-start"
              data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
@@ -63,7 +63,7 @@ const scrollToSection = (section: string) => {
         </div>
 
         <!-- Right -->
-        <HeroVisual class="scale-125 sm:scale-110 md:scale-100"
+        <HeroVisual class="scale-100 sm:scale-105 lg:scale-100"
 
           data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400"/>
       </div>

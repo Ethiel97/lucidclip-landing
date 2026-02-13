@@ -16,7 +16,7 @@ const {problemSolution} = landingContent
       <div class="absolute inset-0 bg-linear-to-b from-black/0 to-black/35"/>
     </div>
 
-    <div class="relative mx-auto max-w-6xl px-6 py-28 lg:py-36">
+    <div class="relative mx-auto max-w-6xl px-6 py-20 sm:py-28 lg:py-36">
       <div class="mx-auto grid max-w-5xl gap-10 lg:grid-cols-2 lg:gap-12">
         <ProblemSolutionCard
           data-aos="fade-up"

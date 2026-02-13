@@ -35,7 +35,7 @@ useHead({
 </script>
 
 <template>
-  <main>
+  <main class="w-full">
     <HeroSection/>
     <ProblemSolutionSection/>
     <PrivacyPreviewSection/>

@@ -5,9 +5,9 @@
 <template>
 
 
-  <div class="min-h-screen w-full flex flex-col bg-bg pt-4 justify-center items-center overflow-hidden">
+  <div class="min-h-screen w-full flex flex-col bg-bg pt-4 overflow-hidden">
     <HeaderBar/>
-    <div class="flex flex-1 grow">
+    <div class="flex flex-1 grow w-full">
       <NuxtPage/>
     </div>
     <FooterBar/>
@@ -18,4 +18,3 @@
 <style scoped>
 
 </style>
-
