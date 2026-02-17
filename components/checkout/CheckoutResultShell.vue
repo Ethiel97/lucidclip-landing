@@ -9,7 +9,7 @@ withDefaults(
 </script>
 
 <template>
-  <div class="relative min-h-screen overflow-hidden bg-bg px-6 py-12">
+  <div class="relative min-h-screen overflow-hidden w-full bg-bg px-6 py-12">
     <!-- centered glow -->
     <div
       class="pointer-events-none absolute left-1/2 top-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] bg-primary-800/10"
