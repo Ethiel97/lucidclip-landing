@@ -256,8 +256,8 @@ export class PolarCheckoutAdapter implements CheckoutAdapter, WebhookAdapter {
     const now = new Date();
     const periodEnd = subscription.currentPeriodEnd ? new Date(subscription.currentPeriodEnd) : null;
 
-    // Logic: Pro if active/past_due, or if canceled but period hasn't ended yet
-    const isPro = ["active", "past_due"].includes(subscription.status) ||
+    // Logic: Pro if active/past_due/trialing, or if canceled but period hasn't ended yet
+    const isPro = ["active", "trialing", "past_due"].includes(subscription.status) ||
       (subscription.status === "canceled" && periodEnd && periodEnd > now);
 
     console.log("Syncing Entitlements for user:", userId, "isPro:", isPro);
