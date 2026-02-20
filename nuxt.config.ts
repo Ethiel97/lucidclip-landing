@@ -23,7 +23,7 @@ export default defineNuxtConfig({
   site: {
     url: 'https://lucidclip.app',
     name: 'LucidClip',
-    description: 'Your clipboard, supercharged. Modern desktop clipboard manager with a focus on privacy and security.',
+    description: 'LucidClip is a native clipboard manager designed for developers and power users who care about privacy, speed, and reliability.',
   },
   app: {
     head: {

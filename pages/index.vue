@@ -12,19 +12,19 @@ definePageMeta({
 })
 
 useHead({
-  title: 'LucidClip - Your Clipboard, Supercharged',
+  title: 'LucidClip, Privacy-first clipboard manager that runs entirely locally',
   meta: [
     {
       name: 'description',
-      content: 'A native desktop clipboard manager that turns every copy into an organized, searchable working memory, fast, quiet and built for focus'
+      content: 'LucidClip is a native clipboard manager designed for developers and power users who care about privacy, speed, and reliability.'
     },
     {
       property: 'og:title',
-      content: 'LucidClip - Your Clipboard, Supercharged'
+      content: 'LucidClip, Privacy-first clipboard manager that runs entirely locally'
     },
     {
       property: 'og:description',
-      content: 'A native desktop clipboard manager that turns every copy into an organized, searchable working memory, fast, quiet and built for focus'
+      content: 'LucidClip is a native clipboard manager designed for developers and power users who care about privacy, speed, and reliability.'
     },
     {
       property: 'og:type',

@@ -11,8 +11,8 @@ useHead({
   }
 })
 
-const title = 'LucidClip - Your Clipboard, Supercharged'
-const description = 'A native desktop clipboard manager that turns every copy into an organized, searchable working memory, fast, quiet and built for focus'
+const title = 'LucidClip — Privacy-First Clipboard Manager'
+const description = 'LucidClip is a native clipboard manager designed for developers and power users who care about privacy, speed, and reliability.'
 
 useSeoMeta({
   title,
