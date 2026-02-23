@@ -197,6 +197,22 @@ export interface AboutContent {
   builtWithFlutter: AboutFlutterContent
 }
 
+export interface FeaturedItem {
+  label: string
+  href: string
+  image: {
+    src: string
+    alt: string
+    width?: number
+    height?: number
+  }
+}
+
+export interface FeaturedContent {
+  title: string
+  items: FeaturedItem[]
+}
+
 export interface LandingContent {
   nav: {
     logo: string
@@ -294,6 +310,7 @@ export interface LandingContent {
   comparison: ComparisonContent
   privacyPage: PrivacyPageContent
   aboutPage: AboutContent
+  featuredOn: FeaturedContent
 }
 
 export const landingContent: LandingContent = {
@@ -496,14 +513,16 @@ export const landingContent: LandingContent = {
         items: [
           {label: 'Privacy', href: '/privacy'},
           {label: 'About', href: '/about'},
-          // {label: 'Terms', href: '/terms'},
+          {label: 'Privacy Policy', href: '/privacy-policy'},
+          {label: 'Terms', href: '/terms'},
           {label: 'Contact', href: 'mailto:support@lucidclip.app'}
         ]
       },
     ],
     social: [
-      {icon: 'simple-icons:x', href: 'https://x.com/lucidclip', label: 'X (Twitter)'},
-      {icon: 'simple-icons:github', href: 'https://github.com/lucidclip', label: 'GitHub'}
+      // {icon: 'simple-icons:x', href: 'https://x.com/lucidclip', label: 'X (Twitter)'},
+      // {icon: 'simple-icons:github', href: 'https://github.com/lucidclip', label: 'GitHub'},
+      {icon: 'simple-icons:discord', href: 'https://discord.gg/35VtgByT', label: 'Join LucidClip lab'}
     ],
     copyright: `© ${new Date().getFullYear()} LucidClip. All rights reserved.`
   },
@@ -928,6 +947,29 @@ export const landingContent: LandingContent = {
         'No external dependencies or cloud services'
       ]
     }
+  },
+  featuredOn: {
+    title: 'Featured on',
+    items: [
+      {
+        label: 'Peerlist',
+        href: 'https://peerlist.io/enthusiastdev/project/lucidclip--privacyfirst-clipboard-manager',
+        image: {
+          src: 'https://peerlist.io/api/v1/projects/embed/PRJHP6L668PAPOJOA3QO8ANLABPNRN?showUpvote=false&theme=light',
+          alt: 'LucidClip — Privacy-First Clipboard Manager'
+        }
+      },
+      {
+        label: 'Product Hunt',
+        href: 'https://www.producthunt.com/products/lucidclip?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-lucidclip',
+        image: {
+          src: 'https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1081054&theme=light&t=1771865319401',
+          alt: 'LucidClip - Privacy-first clipboard manager that runs entirely locally | Product Hunt',
+          width: 250,
+          height: 54
+        }
+      }
+    ]
   }
 
 }

@@ -82,10 +82,28 @@ const handleFooterLinkClick = async (href: string) => {
       <!-- Divider -->
       <div class="mt-12 border-t border-border-subtle/60"/>
 
-      <!-- Copyright -->
-      <p class="mt-8 text-center text-sm text-textMuted">
-        {{ footer.copyright }}
-      </p>
+      <div class="mt-8 flex flex-col items-center justify-between gap-6 sm:flex-row">
+        <!-- Social -->
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a
+            v-for="item in footer.social"
+            :key="item.href"
+            :href="item.href"
+            target="_blank"
+            rel="noreferrer"
+            class="inline-flex items-center gap-2 rounded-pill border border-border-subtle/60 bg-surface/70 px-3 py-2 text-xs text-text-secondary transition hover:-translate-y-0.5 hover:text-text-primary"
+            :aria-label="item.label"
+          >
+            <Icon :name="item.icon" class="h-4 w-4"/>
+            <span class="hidden sm:inline">{{ item.label }}</span>
+          </a>
+        </div>
+
+        <!-- Copyright -->
+        <p class="text-center text-sm text-textMuted">
+          {{ footer.copyright }}
+        </p>
+      </div>
     </div>
   </footer>
 </template>
