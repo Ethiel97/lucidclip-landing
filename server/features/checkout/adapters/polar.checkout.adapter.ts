@@ -157,38 +157,74 @@ export class PolarCheckoutAdapter implements CheckoutAdapter, WebhookAdapter {
         "subscription.past_due",
         "subscription.revoked"
       ];
+      const orderEvents = [
+        "order.paid",
+        "order.refunded"
+      ];
 
 
       console.log("3- Processing event type:", eventType);
 
-      if (!subscriptionEvents.includes(eventType)) {
+      if (!subscriptionEvents.includes(eventType) && !orderEvents.includes(eventType)) {
 
         console.log("Ignoring non-subscription event:", eventType);
         await this.markProcessed(supabase, eventId);
         return {ok: true, ignored: true};
       }
-      console.log("subscriptionEvent", polarEvent)
 
-      const subscription = polarEvent.data;
-      const customer = subscription.customer;
+      if (subscriptionEvents.includes(eventType)) {
+        console.log("subscriptionEvent", polarEvent)
 
-      // 4. Resolve User ID
-      let userId = await this.resolveUserId(supabase, subscription);
+        const subscription = polarEvent.data;
+        const customer = subscription.customer;
 
-      console.log("userId", userId)
+        // 4. Resolve User ID
+        let userId = await this.resolveUserId(supabase, subscription);
 
-      if (!userId) {
+        console.log("userId", userId)
+
+        if (!userId) {
+          await this.markProcessed(supabase, eventId);
+          return {ok: true, mapped: false};
+        }
+
+        // 5. Sync Subscription Data & Entitlements
+        await this.syncSubscription(supabase, userId, subscription);
+        await this.syncEntitlements(supabase, userId, subscription);
+
         await this.markProcessed(supabase, eventId);
-        return {ok: true, mapped: false};
+
+        return {ok: true, user_id: userId, status: subscription.status};
       }
 
-      // 5. Sync Subscription Data & Entitlements
-      await this.syncSubscription(supabase, userId, subscription);
-      await this.syncEntitlements(supabase, userId, subscription);
+      if (orderEvents.includes(eventType)) {
+        const order = polarEvent.data;
+        const isOneTimePurchase = order?.billing_reason === "purchase" && order?.product?.is_recurring === false;
 
-      await this.markProcessed(supabase, eventId);
+        if (!isOneTimePurchase) {
+          console.log("Ignoring non-purchase order:", order?.id);
+          await this.markProcessed(supabase, eventId);
+          return {ok: true, ignored: true};
+        }
 
-      return {ok: true, user_id: userId, status: subscription.status};
+        const userId = await this.resolveUserIdFromOrder(supabase, order);
+
+        if (!userId) {
+          await this.markProcessed(supabase, eventId);
+          return {ok: true, mapped: false};
+        }
+
+        if (eventType === "order.paid") {
+          await this.syncLifetimeEntitlement(supabase, userId, order);
+        }
+
+        if (eventType === "order.refunded") {
+          await this.revokeLifetimeEntitlement(supabase, userId);
+        }
+
+        await this.markProcessed(supabase, eventId);
+        return {ok: true, user_id: userId, status: order?.status};
+      }
     } catch (error) {
       console.error("Webhook Error:", error);
       // @ts-ignore
@@ -219,6 +255,34 @@ export class PolarCheckoutAdapter implements CheckoutAdapter, WebhookAdapter {
         .from("polar_customers")
         .select("user_id")
         .eq("email", sub.customer.email)
+        .maybeSingle();
+      return data?.user_id ?? null;
+    }
+
+    return null;
+  }
+
+  private async resolveUserIdFromOrder(supabase: SupabaseClient, order: any): Promise<string | null> {
+    if (order?.metadata?.supabaseUserId) return order.metadata.supabaseUserId;
+    if (order?.customer?.external_id) return order.customer.external_id;
+    if (order?.customer?.externalId) return order.customer.externalId;
+    if (order?.user_id) return order.user_id;
+
+    if (order?.checkout_id || order?.checkoutId) {
+      const checkoutId = order.checkout_id ?? order.checkoutId;
+      const {data} = await supabase
+        .from("checkout_sessions")
+        .select("user_id")
+        .eq("polar_checkout_id", checkoutId)
+        .maybeSingle();
+      if (data?.user_id) return data.user_id;
+    }
+
+    if (order?.customer?.email) {
+      const {data} = await supabase
+        .from("polar_customers")
+        .select("user_id")
+        .eq("email", order.customer.email)
         .maybeSingle();
       return data?.user_id ?? null;
     }
@@ -266,6 +330,35 @@ export class PolarCheckoutAdapter implements CheckoutAdapter, WebhookAdapter {
       pro: isPro,
       status: subscription.status,
       valid_until: subscription.currentPeriodEnd,
+      source: "polar",
+    }, {onConflict: "user_id"});
+  }
+
+  private async syncLifetimeEntitlement(supabase: SupabaseClient, userId: string, order: any) {
+    console.log("Syncing Lifetime Entitlement for user:", userId, "order:", order?.id);
+    await supabase.from("entitlements").upsert({
+      user_id: userId,
+      pro: true,
+      status: "lifetime",
+      valid_until: null,
+      source: "polar"
+    }, {onConflict: "user_id"});
+  }
+
+  private async revokeLifetimeEntitlement(supabase: SupabaseClient, userId: string) {
+    const {data} = await supabase
+      .from("entitlements")
+      .select("status")
+      .eq("user_id", userId)
+      .maybeSingle();
+
+    if (data?.status !== "lifetime") return;
+
+    await supabase.from("entitlements").upsert({
+      user_id: userId,
+      pro: false,
+      status: "inactive",
+      valid_until: new Date().toISOString(),
       source: "polar",
     }, {onConflict: "user_id"});
   }

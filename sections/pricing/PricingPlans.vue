@@ -35,7 +35,7 @@ const handleCta = async (href: string) => {
         </p>
       </div>
 
-      <div class="mt-14 grid gap-6 lg:grid-cols-2 lg:gap-8">
+      <div class="mt-14 grid gap-6 lg:grid-cols-3 lg:gap-8">
         <PricingPlanCard
           v-for="(plan, index) in pricing.plans.items"
           :key="plan.name"

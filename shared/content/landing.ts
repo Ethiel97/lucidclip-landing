@@ -569,6 +569,8 @@ export const landingContent: LandingContent = {
           description: 'Advanced control, exclusions, and sync for power users.',
           features: [
             'Everything in Free, plus:',
+            'Unlimited clipboard history',
+            'Fine-grained retention control',
             'App exclusions and privacy zones',
             'Pinned clips and tags',
             'Sync across devices',
@@ -580,6 +582,28 @@ export const landingContent: LandingContent = {
             href: '/download',
             variant: 'primary',
             helper: 'Unlock advanced controls and sync'
+          }
+        },
+        {
+          name: 'Lifetime',
+          price: '$129',
+          cadence: 'one-time',
+          description: 'Pay once and unlock LucidClip Pro forever.',
+          features: [
+            'Unlimited clipboard history',
+            'Fine-grained retention control',
+            'App exclusions and privacy zones',
+            'Pinned clips and tags',
+            'Sync across devices',
+            'Automation rules',
+            'Priority support'
+          ],
+          badge: 'Best value',
+          cta: {
+            label: 'Download LucidClip',
+            href: '/download',
+            variant: 'soft',
+            helper: 'Lifetime access, no subscriptions'
           }
         }
       ],
