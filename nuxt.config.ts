@@ -27,11 +27,40 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      __dangerouslyDisableSanitizersByTagID: {
+        'linkedin-partner-id': ['innerHTML'],
+        'linkedin-insight-init': ['innerHTML'],
+        'linkedin-noscript': ['innerHTML']
+      },
       script: [
         {
           src: 'https://tally.so/widgets/embed.js',
           async: true,
           type: 'text/javascript',
+        }
+        ,
+        {
+          id: 'linkedin-partner-id',
+          innerHTML: `_linkedin_partner_id = "8735226";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);`
+        },
+        {
+          id: 'linkedin-insight-init',
+          innerHTML: `(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);`
+        }
+      ],
+      noscript: [
+        {
+          id: 'linkedin-noscript',
+          innerHTML: '<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8735226&fmt=gif" />'
         }
       ]
     },
