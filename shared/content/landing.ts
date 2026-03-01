@@ -699,15 +699,21 @@ export const landingContent: LandingContent = {
         {
           id: 'windows',
           title: 'Windows',
-          subtitle: 'Coming soon',
+          subtitle: 'Windows 10 or later',
           icon: 'lucide:monitor',
-          description:
-            "We're working hard on bringing LucidClip to Windows. Native Windows support is in active development and will be available soon.",
+          description: '',
+          bullets: [
+            'Native Windows performance',
+            'Keyboard shortcuts & quick paste',
+            'System tray access',
+            '~35MB download size'
+          ],
           cta: {
-            label: 'Coming Soon',
+            label: 'Download for Windows',
+            href: 'https://apps.microsoft.com/store/detail/9MW4C2KH91P5?cid=DevShareMCLPCS',
             disabled: false
           },
-          helper: 'Notify me when available →'
+          helper: 'Available now on the Microsoft Store'
         }
       ]
     },
@@ -720,16 +726,16 @@ export const landingContent: LandingContent = {
             'macOS 12.0 (Monterey) or later',
             '100 MB available storage space',
             'Internet connection for initial download',
-            'Recommended: 8GB RAM'
+            'Recommended: 4GB RAM'
           ]
         },
         {
-          title: 'Windows (Coming Soon)',
+          title: 'Windows',
           items: [
             'Windows 10 or later',
             '100 MB available storage space',
             'Internet connection for initial download',
-            'Recommended: 8GB RAM'
+            'Recommended: 4GB RAM'
           ]
         }
       ]

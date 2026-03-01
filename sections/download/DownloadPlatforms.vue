@@ -102,9 +102,8 @@ landingContent.download.platforms.items = landingContent.download.platforms.item
                 :disabled="platform.cta.disabled"
                 :href="platform.cta.href"
                 :target="platform.cta.href ? '_blank' : undefined"
-                :rel="platform.cta.href ? 'noopener' : undefined"
+                :rel="platform.cta.href ? 'noreferrer' : undefined"
                 :variant="platform.cta.disabled ? 'soft' : 'solid'"
-                v-bind="platform.id === 'windows' ? { 'data-tally-open': 'Xx0ZVV','data-tally-emoji-text': '👋','data-tally-emoji-animation': 'wave'}: {}"
               >
                 {{ platform.cta.label }}
               </UButton>
