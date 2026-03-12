@@ -26,7 +26,7 @@ const scrollToSection = (section: string) => {
         <!-- Left -->
         <div class="flex flex-col items-center lg:items-start"
              data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
-          <h1 class="text-4xl md:text-6xl leading-[1.02] tracking-tight font-semibold lg:text-6xl xl:text-7xl">
+          <h1 class="text-4xl md:text-6xl leading-[1.02] tracking-tight font-semibold lg:text-5xl xl:text-6xl">
             <span class="block">{{ hero.headline.primary }}</span>
             <span class="block text-text-secondary">{{ hero.headline.secondary }}.</span>
           </h1>

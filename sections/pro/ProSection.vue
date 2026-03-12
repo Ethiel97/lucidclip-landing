@@ -46,7 +46,7 @@ const goToDownload = async () => {
           </div>
 
           <!-- PRO cards -->
-          <div class="mt-10 grid gap-6 md:grid-cols-3">
+          <div class="mt-10 grid gap-6 md:grid-cols-2">
             <FeatureCard
               data-aos="fade-up"
               data-aos-duration="1000"

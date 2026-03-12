@@ -326,40 +326,40 @@ export const landingContent: LandingContent = {
     cta: 'Get LucidClip'
   },
   hero: {
-    headline: {primary: 'Your Clipboard,', secondary: 'Supercharged'},
+    headline: {primary: 'The clipboard that remembers,', secondary: 'understands, and stays private'},
     subheadline:
-      'A privacy-first, local-native clipboard manager that turns every copy into a structured, searchable working memory — fast, invisible, and built for deep focus.',
+      'Capture everything you copy, find it instantly, and let AI summarize, explain, or translate — all on your device.',
     cta: {
-      primary: 'Get LucidClip',
+      primary: 'Download LucidClip',
       secondary: 'See it in action'
     },
     trustBullets: [
-      '100% local-first architecture',
-      'Native desktop app (macOS, Windows)',
-      'Instant search, zero tracking'
+      'Local-first by design',
+      'AI-powered clipboard actions',
+      'Built for fast workflows'
     ]
   },
 
 
   problemSolution: {
-    headline: 'Why most clipboards fall short',
-    subheadline: 'And what LucidClip does differently.',
+    headline: 'Why default clipboards break focus',
+    subheadline: 'And how LucidClip turns copy into usable memory.',
     items: [
       {
         label: 'The Problem',
         tone: 'problem',
         icon: 'lucide:x',
-        title: 'A clipboard that works against you',
+        title: 'A clipboard that forgets everything',
         color: 'error',
         description: [
-          'Your operating system gives you a temporary clipboard.',
-          'It forgets what matters and keeps what you do not need.',
-          'You constantly re-copy links, snippets, files.',
-          'Most third-party tools add history — but not control.',
-          'Few offer real privacy guarantees or structured retention.'
+          'System clipboards are built for one-copy tasks.',
+          'They overwrite important info and lose context.',
+          'You re-copy links, snippets, and references all day.',
+          'Most tools add history, not understanding.',
+          'Few are built for privacy or serious work.'
         ],
         closingLine: {
-          text: 'You lose time. You lose context. You lose trust.',
+          text: 'You lose momentum and repeat work you already did.',
           emphasis: 'muted'
         },
       },
@@ -367,16 +367,16 @@ export const landingContent: LandingContent = {
         label: 'The Solution',
         tone: 'solution',
         icon: 'lucide:sparkles',
-        title: 'A true system-level working memory',
+        title: 'A clipboard that understands your work',
         color: 'primary',
         description: [
-          'LucidClip runs natively on your machine — no browser layers, no Electron overhead.',
-          'Everything you copy becomes part of a structured working memory.',
-          'You control retention, exclusions, and privacy zones.',
-          'Local-first architecture means your clipboard never leaves your device by default.'
+          'LucidClip captures, organizes, and makes every clip useful.',
+          'Search, filter, and reuse instantly — all on-device.',
+          'AI actions help you summarize, explain, and translate.',
+          'Fast, quiet, and built to stay out of your way.'
         ],
         closingLine: {
-          text: 'Your clipboard becomes reliable infrastructure — not a temporary buffer.',
+          text: 'Your clipboard becomes a productivity layer, not a liability.',
           emphasis: 'primary'
         }
 
@@ -387,56 +387,62 @@ export const landingContent: LandingContent = {
   productPreview: {
     headline: {
       primary: 'Exclude what should',
-      secondary: 'never be copied'
+      secondary: 'never be captured'
     },
     badge: 'Privacy by design',
-    description: "LucidClip runs entirely on your machine. You decide what is tracked, what is excluded, and how long it is retained. No server-side indexing. No hidden telemetry.",
+    description: 'LucidClip runs locally, so you decide what gets stored, excluded, and retained. No server-side indexing. No hidden telemetry.',
     bullets: [
-      'Choose which apps to exclude',
-      'System-level privacy control',
-      'Runs entirely on your machine',
+      'Exclude apps with one click',
+      'System-level privacy controls',
+      'Runs entirely on your device',
     ],
     media: {
       src: '/images/app-exclusion.gif',
       alt: 'LucidClip app exclusion workflow',
       caption: 'System-level control, built for privacy'
     },
-    footnote: "Local-first architecture. Your clipboard data never leaves your device."
+    footnote: "Local-first by default. Your clipboard data stays on your device."
   },
 
   features: {
-    headline: 'Features that get out of your way',
-    subheadline: 'Everything designed to be invisible until you need it.',
+    headline: 'Features that stay out of your way',
+    subheadline: 'Fast by default, intelligent when you need it.',
     items: [
       {
         icon: 'lucide:clock',
         title: 'Persistent History',
         description:
-          'Clipboard history designed for long-term reuse — not just temporary recall.'
+          'Everything you copy stays searchable and ready.'
       },
       {
         icon: 'lucide:search',
         title: 'Smart Search',
         description:
-          'Fuzzy search across text, files, and code. Instant results, no lag.'
+          'Find any clip instantly with fast, fuzzy search.'
       },
       {
         icon: 'lucide:layers',
         title: 'App-Aware Context',
         description:
-          'Every clip remembers its origin. Context becomes part of memory.'
+          'Every clip keeps its origin so context never gets lost.'
       },
       {
         icon: 'lucide:shield',
         title: 'App Exclusions (Pro)',
         description:
-          'Block password managers, banking apps, or any sensitive source entirely.'
+          'Block sensitive apps from ever entering history.'
       },
       {
         icon: 'lucide:cloud',
         title: 'Sync (Pro)',
         description:
-          'Optional encrypted sync. Your data stays under your control.'
+          'Optional encrypted sync across devices.'
+      },
+      {
+        icon: 'lucide:sparkles',
+        title: 'Clipboard AI (Pro)',
+        description:
+          'Summarize, explain, and translate clipboard content instantly.'
       }
     ],
 
@@ -447,7 +453,7 @@ export const landingContent: LandingContent = {
     headline: 'Power features for serious workflows',
 
     subheadline:
-      'LucidClip Pro unlocks advanced privacy controls, automation, and encrypted sync — built for developers and power users who treat their clipboard as infrastructure.',
+      'LucidClip Pro adds unlimited history, fine-grained retention, and AI actions — for people who treat their clipboard like a productivity layer.',
 
     items: [
       {
@@ -457,28 +463,34 @@ export const landingContent: LandingContent = {
           'Exclude sensitive apps from clipboard history.'
       },
       {
-        icon: 'lucide:zap',
-        title: 'Advanced Rules',
+        icon: 'lucide:infinity',
+        title: 'Unlimited History',
         description:
-          'Custom automation and smart organization.'
+          'Keep everything you copy with zero history limits.'
       },
       {
-        icon: 'lucide:cloud',
-        title: 'Encrypted Sync',
+        icon: 'lucide:clock',
+        title: 'Retention Control',
         description:
-          'Optional, end-to-end encrypted device sync. Never routed through our servers in readable form.'
+          'Set precise retention windows per clip type.'
+      },
+      {
+        icon: 'lucide:sparkles',
+        title: 'Clipboard AI',
+        description:
+          'Summarize, explain, and translate your clipboard content.'
       }
     ],
     cta: {
       label: 'Upgrade to Pro',
-      helper: 'Download LucidClip to unlock Pro features'
+      helper: 'Unlock Pro inside the app once you download'
     }
   },
 
 
   privacy: {
     headline: 'Privacy-first, always',
-    subheadline: "Your clipboard contains sensitive data. LucidClip is built so that you — and only you — control it.",
+    subheadline: 'Your clipboard contains sensitive data. LucidClip keeps it local, controlled, and yours.',
     features: [
       {
         icon: 'lucide:hard-drive',
@@ -498,7 +510,7 @@ export const landingContent: LandingContent = {
     ]
   },
   footer: {
-    tagline: 'An intelligent clipboard manager built for developers, creators, and power users who demand control and clarity.',
+    tagline: 'An intelligent, local-first clipboard manager for people who work fast and care about privacy.',
     links: [
       {
         title: 'Product',
@@ -552,12 +564,12 @@ export const landingContent: LandingContent = {
         primary: 'Simple pricing',
         secondary: 'for serious workflows'
       },
-      subheadline: 'Start free with full local-first functionality. Upgrade when you need exclusions, automation, and encrypted sync.',
+      subheadline: 'Start free with fast, local-first history. Upgrade for unlimited retention, AI actions, and deeper control.',
       cta: {
-        primary: 'Download for macOS',
+        primary: 'Download LucidClip',
         secondary: 'Compare plans'
       },
-      note: 'Cancel anytime. No long-term contracts.'
+      note: 'Cancel anytime. Lifetime available.'
     },
     plans: {
       headline: 'Choose the plan that fits your flow',
@@ -567,10 +579,11 @@ export const landingContent: LandingContent = {
           name: 'Free',
           price: '$0',
           cadence: 'forever',
-          description: 'All the essentials to replace your default clipboard.',
+          description: 'A fast, private clipboard with the essentials.',
           features: [
-            'Limited clipboard history',
+            'Clipboard history with basic retention',
             'Instant search and filters',
+            'Keyboard-first workflow',
             'App-aware context',
             'Local-only storage'
           ],
@@ -583,15 +596,17 @@ export const landingContent: LandingContent = {
         },
         {
           name: 'Pro',
-          price: '$6',
+          price: '$7',
           cadence: 'per month',
-          description: 'Advanced control, exclusions, and sync for power users.',
+          description: 'Unlimited history and AI actions for daily use.',
           features: [
             'Everything in Free, plus:',
             'Unlimited clipboard history',
             'Fine-grained retention control',
             'App exclusions and privacy zones',
             'Pinned clips and tags',
+            'Advanced search and semantic discovery',
+            'Clipboard AI actions (summarize, explain, translate)',
             'Sync across devices',
             'Automation rules'
           ],
@@ -604,20 +619,44 @@ export const landingContent: LandingContent = {
           }
         },
         {
+          name: 'Pro Annual',
+          price: '$65',
+          cadence: 'per year',
+          description: 'Best value for steady, everyday workflows.',
+          features: [
+            'Everything in Pro, billed annually:',
+            'Unlimited clipboard history',
+            'Fine-grained retention control',
+            'App exclusions and privacy zones',
+            'Pinned clips and tags',
+            'Advanced search and semantic discovery',
+            'Clipboard AI actions (summarize, explain, translate)',
+            'Sync across devices',
+            'Automation rules'
+          ],
+          cta: {
+            label: 'Download LucidClip',
+            href: '/download',
+            variant: 'soft',
+            helper: 'A year of Pro, billed once'
+          }
+        },
+        {
           name: 'Lifetime',
-          price: '$129',
+          price: '$130',
           cadence: 'one-time',
-          description: 'Pay once and unlock LucidClip Pro forever.',
+          description: 'Pay once, keep Pro forever.',
           features: [
             'Unlimited clipboard history',
             'Fine-grained retention control',
             'App exclusions and privacy zones',
             'Pinned clips and tags',
+            'Advanced search and semantic discovery',
+            'Clipboard AI actions (summarize, explain, translate)',
             'Sync across devices',
             'Automation rules',
             'Priority support'
           ],
-          badge: 'Best value',
           cta: {
             label: 'Download LucidClip',
             href: '/download',
@@ -626,7 +665,7 @@ export const landingContent: LandingContent = {
           }
         }
       ],
-      footnote: 'Annual billing and student discounts are coming soon.'
+      footnote: 'Pricing is per user. macOS and Windows included.'
     },
     highlights: {
       headline: 'Everything stays fast and private',
@@ -659,15 +698,15 @@ export const landingContent: LandingContent = {
         },
         {
           question: 'What platforms are supported?',
-          answer: 'LucidClip launches on macOS first, with Windows support in development.'
+          answer: 'LucidClip is available on macOS and Windows today.'
         },
         {
           question: 'Can I cancel Pro anytime?',
           answer: 'Absolutely. You can cancel from your account at any time.'
         },
         {
-          question: 'Is there a team plan?',
-          answer: 'Not at the moment. We are focused on Free and Pro for launch.'
+          question: 'Is there a lifetime option?',
+          answer: 'Yes. Lifetime gives you Pro forever with a one-time purchase.'
         }
       ]
     }
@@ -767,7 +806,7 @@ export const landingContent: LandingContent = {
   comparison: {
     headline: 'Built for clipboard-first workflows',
     subheadline:
-      'LucidClip is purpose-built for managing your working memory. Unlike general productivity tools, we focus solely on clipboard excellence.',
+      'Purpose-built for working memory, not a bundle of unrelated tools. Everything is optimized for speed and recall.',
     columns: [
       {label: 'Feature'},
       {label: 'LucidClip', sublabel: 'Clipboard-centric'},
@@ -816,13 +855,18 @@ export const landingContent: LandingContent = {
         values: ['yes', 'no', 'no']
       },
       {
+        title: 'Clipboard AI',
+        description: 'Summaries, explanations, translation',
+        values: ['yes', 'no', 'no']
+      },
+      {
         title: 'Clipboard as Working Memory',
         description: 'Designed for long-term reuse, not just recall',
         values: ['yes', 'no', 'no']
       }
     ],
     footnote:
-      'Your clipboard is not temporary. It is your working memory.',
+      'Your clipboard is not temporary. Treat it like working memory.',
     cta: {
       label: 'Download LucidClip',
       href: '/download'
@@ -930,7 +974,7 @@ export const landingContent: LandingContent = {
         {
           icon: 'lucide:code-2',
           title: 'Built by engineers',
-          description: "LucidClip is built with Flutter, giving us true native performance on macOS. No Electron bloat. No web wrappers. Just fast, native code."
+          description: "LucidClip is built with Flutter, delivering native-grade performance on macOS and Windows with Linux on the way. No Electron bloat. No web wrappers. Just fast, native code."
         },
         {
           icon: 'lucide:sparkles',
@@ -942,15 +986,15 @@ export const landingContent: LandingContent = {
     builtWithFlutter: {
       title: 'Built with Flutter',
       paragraphs: [
-        "LucidClip is built with Flutter, Google's UI framework. This gives us the best of both worlds: native macOS performance with the ability to ship cross-platform in the future.",
-        "Flutter compiles to native code, so LucidClip feels like a true Mac app. No web views, no Electron bloat, no compromises. Just fast, responsive UI that respects your system resources."
+        "LucidClip is built with Flutter, Google's UI framework. It lets us deliver the same fast, native-grade experience across macOS, Windows, and soon Linux.",
+        "Flutter compiles to native code, so LucidClip feels right at home on each platform. No web views, no Electron bloat, no compromises. Just fast, responsive UI that respects your system resources."
       ],
       listTitle: 'Key technologies:',
       listItems: [
         'Flutter for native UI',
         'SQLite for local database',
-        'macOS native APIs for clipboard monitoring',
-        'No external dependencies or cloud services'
+        'Platform-native clipboard APIs on macOS and Windows',
+        'Linux support in active development'
       ]
     }
   },
