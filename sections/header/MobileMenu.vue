@@ -116,7 +116,7 @@ const onAfterLeave = () => {
             </NuxtLink>
 
             <p class="mt-3 text-center text-xs text-text-muted">
-              Download the latest macOS build
+              Download for macOS or Windows
             </p>
           </div>
         </aside>

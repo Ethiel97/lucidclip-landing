@@ -20,6 +20,12 @@ const buttonVariant = computed(() => (
   props.plan.cta.variant === 'primary' ? 'solid' : 'soft'
 ))
 
+const buttonClass = computed(() => (
+  props.plan.cta.variant === 'primary'
+    ? 'shadow-[0_18px_45px_-28px_rgba(97,95,255,0.9)] ring-1 ring-primary/30 hover:shadow-[0_22px_55px_-28px_rgba(97,95,255,1)]'
+    : 'ring-1 ring-border-subtle/70 hover:ring-primary/40 hover:text-white'
+))
+
 const handleCta = () => emit('cta', props.plan.cta.href)
 </script>
 
@@ -77,7 +83,8 @@ const handleCta = () => emit('cta', props.plan.cta.href)
       size="lg"
       :color="buttonColor"
       :variant="buttonVariant"
-      class="mt-8 w-full rounded-pill py-3 font-semibold justify-center text-white"
+      class="mt-8 w-full rounded-pill py-3 font-semibold justify-center transition-all duration-200"
+      :class="buttonClass"
       @click="handleCta"
     >
       {{ plan.cta.label }}

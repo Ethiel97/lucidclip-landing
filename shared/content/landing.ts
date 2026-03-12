@@ -591,7 +591,7 @@ export const landingContent: LandingContent = {
             label: 'Download LucidClip',
             href: '/download',
             variant: 'soft',
-            helper: 'macOS download available now'
+            helper: 'macOS + Windows available now, Linux coming soon'
           }
         },
         {
@@ -714,7 +714,7 @@ export const landingContent: LandingContent = {
   download: {
     hero: {
       title: 'Download LucidClip',
-      subheadline: 'Get started with your intelligent clipboard manager. Available for macOS, with Windows support coming soon.'
+      subheadline: 'Get started with your intelligent clipboard manager. Available for macOS and Windows, with Linux coming soon.'
     },
     platforms: {
       items: [
