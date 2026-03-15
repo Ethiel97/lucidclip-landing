@@ -27,6 +27,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      //@ts-ignore
       __dangerouslyDisableSanitizersByTagID: {
         'linkedin-partner-id': ['innerHTML'],
         'linkedin-insight-init': ['innerHTML'],
@@ -114,11 +115,12 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);`
   },
 
   runtimeConfig: {
-      polarAccessToken: process.env.POLAR_ACCESS_TOKEN,
-      polarServer: process.env.POLAR_SERVER || 'sandbox',
-      polarCheckoutSuccessUrl: process.env.POLAR_SUCCESS_URL,
-      polarReturnUrl: process.env.POLAR_RETURN_URL,
+    polarAccessToken: process.env.POLAR_ACCESS_TOKEN,
+    polarServer: process.env.POLAR_SERVER || 'sandbox',
+    polarCheckoutSuccessUrl: process.env.POLAR_SUCCESS_URL,
+    polarReturnUrl: process.env.POLAR_RETURN_URL,
     polarWebhookSecret: process.env.POLAR_WEBHOOK_SECRET,
+    lifetimeProductId: process.env.LIFETIME_PRODUCT_ID,
   },
 
   compatibilityDate: '2025-01-15',

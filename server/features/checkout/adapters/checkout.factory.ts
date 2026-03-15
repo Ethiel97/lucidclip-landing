@@ -8,7 +8,8 @@ export const createCheckoutAdapter = (): CheckoutAdapter => {
     polarServer,
     polarAccessToken,
     polarReturnUrl,
-    polarWebhookSecret
+    polarWebhookSecret,
+    lifetimeProductId,
   } = useRuntimeConfig()
 
   return new PolarCheckoutAdapter({
@@ -16,6 +17,7 @@ export const createCheckoutAdapter = (): CheckoutAdapter => {
     server: polarServer as 'sandbox' | 'production',
     polarWebhookSecret,
     defaultSuccessUrl: polarCheckoutSuccessUrl,
-    defaultReturnUrl: polarReturnUrl
+    defaultReturnUrl: polarReturnUrl,
+    lifetimeProductId: 'lifetime',
   })
 }
