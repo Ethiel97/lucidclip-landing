@@ -31,7 +31,7 @@ const handleCta = () => emit('cta', props.plan.cta.href)
 
 <template>
   <UCard
-    :ui="{ body: 'p-7 sm:p-8' }"
+    :ui="{ body: 'p-7 sm:p-8 h-full flex flex-col' }"
     class="relative overflow-hidden rounded-card border bg-linear-to-b from-surface/80 to-surface2/60"
     :class="cardClass"
   >
@@ -79,19 +79,21 @@ const handleCta = () => emit('cta', props.plan.cta.href)
       </li>
     </ul>
 
-    <UButton
-      size="lg"
-      :color="buttonColor"
-      :variant="buttonVariant"
-      class="mt-8 w-full rounded-pill py-3 font-semibold justify-center transition-all duration-200"
-      :class="buttonClass"
-      @click="handleCta"
-    >
-      {{ plan.cta.label }}
-    </UButton>
+    <div class="mt-auto pt-8">
+      <UButton
+        size="lg"
+        :color="buttonColor"
+        :variant="buttonVariant"
+        class="w-full rounded-pill py-3 font-semibold justify-center transition-all duration-200"
+        :class="buttonClass"
+        @click="handleCta"
+      >
+        {{ plan.cta.label }}
+      </UButton>
 
-    <p v-if="plan.cta.helper" class="mt-3 text-center text-xs text-text-muted">
-      {{ plan.cta.helper }}
-    </p>
+      <p v-if="plan.cta.helper" class="mt-3 text-center text-xs text-text-muted">
+        {{ plan.cta.helper }}
+      </p>
+    </div>
   </UCard>
 </template>

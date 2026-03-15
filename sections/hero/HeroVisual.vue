@@ -1,5 +1,5 @@
 <template>
-  <div class="relative mx-auto w-full max-w-[520px] sm:max-w-[600px] lg:max-w-[720px]">
+  <div class="relative mx-auto w-full max-w-130 sm:max-w-150 lg:max-w-180">
     <!-- glow behind the window -->
     <div
       class="pointer-events-none absolute -inset-10 rounded-[28px] blur-3xl opacity-60"
@@ -11,12 +11,12 @@
       <div
         class="overflow-hidden rounded-card bg-surface/5 border border-border-subtle/5 hover:scale-[1.02] duration-300 transition-transform">
         <NuxtImg
-          src="/images/hero.webp"
+          src="/images/main-hero.webp"
           alt="LucidClip preview"
-          width="2224"
+          width="2424"
           height="1624"
           class="h-auto w-full object-cover"
-          format="avif"
+          format="webp"
           loading="lazy"
           fetchpriority="high"
           preload

@@ -65,7 +65,7 @@ const scrollToSection = (section: string) => {
         <!-- Right -->
         <HeroVisual class="scale-100 sm:scale-105 lg:scale-100"
 
-          data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400"/>
+                    data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400"/>
       </div>
     </div>
   </section>

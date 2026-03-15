@@ -328,14 +328,14 @@ export const landingContent: LandingContent = {
   hero: {
     headline: {primary: 'Your Clipboard, upgraded.', secondary: 'Private. Intelligent. Fast.'},
     subheadline:
-      'Capture everything you copy, find it instantly, and let AI summarize, explain, or translate — all on your device.',
+      'Capture everything you copy, find it instantly, and let AI explain, summarize, or translate — all on your device.',
     cta: {
       primary: 'Download LucidClip',
       secondary: 'See it in action'
     },
     trustBullets: [
-      'Local-first by design',
-      'AI-powered clipboard actions',
+      'Local-first privacy',
+      'AI-powered clipboard intelligence',
       'Built for fast workflows'
     ]
   },
@@ -372,7 +372,7 @@ export const landingContent: LandingContent = {
         description: [
           'LucidClip captures, organizes, and makes every clip useful.',
           'Search, filter, and reuse instantly — all on-device.',
-          'AI actions help you summarize, explain, and translate.',
+          'AI actions help you explain, summarize, and translate.',
           'Fast, quiet, and built to stay out of your way.'
         ],
         closingLine: {
@@ -442,7 +442,7 @@ export const landingContent: LandingContent = {
         icon: 'lucide:sparkles',
         title: 'Clipboard AI (Pro)',
         description:
-          'Summarize, explain, and translate clipboard content instantly.'
+          'Explain, summarize, and translate clipboard content instantly.'
       }
     ],
 
@@ -478,7 +478,7 @@ export const landingContent: LandingContent = {
         icon: 'lucide:sparkles',
         title: 'Clipboard AI',
         description:
-          'Summarize, explain, and translate your clipboard content.'
+          'Explain, summarize, and translate your clipboard content.'
       }
     ],
     cta: {
@@ -591,7 +591,7 @@ export const landingContent: LandingContent = {
             label: 'Download LucidClip',
             href: '/download',
             variant: 'soft',
-            helper: 'macOS + Windows available now, Linux coming soon'
+            helper: 'Early supporter pricing available'
           }
         },
         {
@@ -606,7 +606,7 @@ export const landingContent: LandingContent = {
             'App exclusions and privacy zones',
             'Pinned clips and tags',
             'Advanced search and semantic discovery',
-            'Clipboard AI actions (summarize, explain, translate)',
+            'Clipboard AI actions (explain, summarize, translate)',
             'Sync across devices',
             'Automation rules'
           ],
@@ -615,7 +615,7 @@ export const landingContent: LandingContent = {
             label: 'Download LucidClip',
             href: '/download',
             variant: 'primary',
-            helper: 'Unlock advanced controls and sync'
+            helper: 'Early supporter pricing available'
           }
         },
         {
@@ -630,7 +630,7 @@ export const landingContent: LandingContent = {
             'App exclusions and privacy zones',
             'Pinned clips and tags',
             'Advanced search and semantic discovery',
-            'Clipboard AI actions (summarize, explain, translate)',
+            'Clipboard AI actions (explain, summarize, translate)',
             'Sync across devices',
             'Automation rules'
           ],
@@ -638,12 +638,12 @@ export const landingContent: LandingContent = {
             label: 'Download LucidClip',
             href: '/download',
             variant: 'soft',
-            helper: 'A year of Pro, billed once'
+            helper: 'Early supporter pricing available'
           }
         },
         {
           name: 'Lifetime',
-          price: '$130',
+          price: '$150',
           cadence: 'one-time',
           description: 'Pay once, keep Pro forever.',
           features: [
@@ -652,7 +652,7 @@ export const landingContent: LandingContent = {
             'App exclusions and privacy zones',
             'Pinned clips and tags',
             'Advanced search and semantic discovery',
-            'Clipboard AI actions (summarize, explain, translate)',
+            'Clipboard AI actions (explain, summarize, translate)',
             'Sync across devices',
             'Automation rules',
             'Priority support'
@@ -661,11 +661,11 @@ export const landingContent: LandingContent = {
             label: 'Download LucidClip',
             href: '/download',
             variant: 'soft',
-            helper: 'Lifetime access, no subscriptions'
+            helper: 'Lifetime access for early supporters'
           }
         }
       ],
-      footnote: 'Pricing is per user. macOS and Windows included.'
+      footnote: 'Early supporter pricing. Per user. macOS and Windows included.'
     },
     highlights: {
       headline: 'Everything stays fast and private',
