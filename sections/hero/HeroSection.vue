@@ -22,7 +22,7 @@ const scrollToSection = (section: string) => {
     </div>
 
     <div class="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-10 py-16 sm:py-20 lg:py-32">
-      <div class="grid items-center gap-10 sm:gap-12 lg:gap-14 lg:grid-cols-2">
+      <div class="grid items-center gap-6 sm:gap-8 lg:grid-cols-2">
         <!-- Left -->
         <div class="flex flex-col items-center lg:items-start"
              data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
