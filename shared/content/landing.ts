@@ -326,7 +326,7 @@ export const landingContent: LandingContent = {
     cta: 'Get LucidClip'
   },
   hero: {
-    headline: {primary: 'The clipboard that remembers,', secondary: 'understands, and stays private'},
+    headline: {primary: 'Clipboard, upgraded.', secondary: 'Private. Intelligent. Fast.'},
     subheadline:
       'Capture everything you copy, find it instantly, and let AI summarize, explain, or translate — all on your device.',
     cta: {

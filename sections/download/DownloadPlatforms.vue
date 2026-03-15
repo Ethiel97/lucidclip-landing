@@ -23,12 +23,6 @@ const macFootnote =
     ? `Version ${macosRelease.value.version} . Released on ${macosReleaseDate}`
     : "Latest version";
 
-const tallyAttrs = {
-  'data-tally-open': 'Xx0ZVV',
-  'data-tally-emoji-text': '👋',
-  'data-tally-emoji-animation': 'wave',
-};
-
 landingContent.download.platforms.items = landingContent.download.platforms.items.map((platform) => {
   if (platform.id === "macos") {
     return {
@@ -110,7 +104,6 @@ landingContent.download.platforms.items = landingContent.download.platforms.item
                 :target="platform.cta.href ? '_blank' : undefined"
                 :rel="platform.cta.href ? 'noreferrer' : undefined"
                 :variant="platform.cta.disabled ? 'soft' : 'solid'"
-                v-bind="platform.id === 'windows' ? tallyAttrs : {}"
               >
                 {{ platform.cta.label }}
               </UButton>
