@@ -20,8 +20,15 @@ useSeoMeta({
   ogTitle: title,
   ogDescription: description,
   ogImage: '/images/og.png',
+  ogType: 'website',
+  ogUrl: 'https://lucidclip.app',
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterSite: '@lucidclipapp',
+  twitterCreator: '@lucidclipapp',
+  ogSiteName: 'LucidClip',
   twitterImage: '/images/og.png',
-  twitterCard: 'summary_large_image'
+  twitterCard: 'summary_large_image',
 })
 </script>
 
