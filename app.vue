@@ -19,7 +19,9 @@ useSeoMeta({
   description,
   ogTitle: title,
   ogDescription: description,
-  ogImage: '/images/og.png',
+  ogImage: 'https://lucidclip.app/images/og.png',
+  ogImageUrl: 'https://lucidclip.app/images/og.png',
+  ogImageSecureUrl: 'https://lucidclip.app/images/og.png',
   ogType: 'website',
   ogUrl: 'https://lucidclip.app',
   twitterTitle: title,
@@ -27,7 +29,7 @@ useSeoMeta({
   twitterSite: '@lucidclipapp',
   twitterCreator: '@lucidclipapp',
   ogSiteName: 'LucidClip',
-  twitterImage: '/images/og.png',
+  twitterImage: 'https://lucidclip.app/images/og.png',
   twitterCard: 'summary_large_image',
 })
 </script>
