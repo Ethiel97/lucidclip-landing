@@ -596,7 +596,7 @@ export const landingContent: LandingContent = {
         },
         {
           name: 'Pro',
-          price: '$5',
+          price: '$4',
           cadence: 'per month',
           description: 'Unlimited history and AI actions for daily use.',
           features: [
@@ -620,7 +620,7 @@ export const landingContent: LandingContent = {
         },
         {
           name: 'Pro Annual',
-          price: '$49',
+          price: '$38',
           cadence: 'per year',
           description: 'Best value for steady, everyday workflows.',
           features: [
@@ -643,7 +643,7 @@ export const landingContent: LandingContent = {
         },
         {
           name: 'Lifetime',
-          price: '$120',
+          price: '$80',
           cadence: 'one-time',
           description: 'Pay once, keep Pro forever.',
           features: [
