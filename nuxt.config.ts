@@ -103,6 +103,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);`
     }
   },
 
+  fonts: {
+    families: [
+      {name: 'Inter', provider: 'google', weights: ['400', '500', '600', '700']},
+      {name: 'Geist', provider: 'google', weights: ['500', '600', '700']}
+    ]
+  },
+
   supabase: {
     url: process.env.SUPABASE_URL,
     key: process.env.SUPABASE_PUBLISHABLE_KEY,

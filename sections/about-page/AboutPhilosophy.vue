@@ -5,37 +5,24 @@ const {aboutPage} = landingContent
 </script>
 
 <template>
-  <section class="relative bg-bg py-12 text-text-primary sm:py-16">
-    <div class="pointer-events-none absolute inset-0">
-      <div
-        class="absolute left-1/2 -top-60 h-225 w-225 -translate-x-1/2 rounded-full blur-3xl opacity-20"
-        style="background: radial-gradient(circle, rgba(97,95,255,.12), transparent 60%);"
-      />
-      <div class="absolute inset-0 bg-linear-to-b from-black/0 via-black/0 to-black/35"/>
-    </div>
-
+  <section class="relative border-t border-white/5 bg-bg py-16 text-text-primary sm:py-20">
     <div class="relative mx-auto max-w-5xl px-6">
-      <h2 class="text-center text-xl font-semibold text-text-primary sm:text-2xl" data-aos="fade-up" data-aos-duration="1000">
-        {{ aboutPage.philosophy.title }}
-      </h2>
+      <SectionHeader :title="aboutPage.philosophy.title"/>
 
-      <div class="mt-8 grid gap-6 md:grid-cols-2">
+      <div class="mt-12 grid gap-4 md:grid-cols-2" data-aos="fade-up" data-aos-duration="600">
         <article
-          v-for="(item, index) in aboutPage.philosophy.items"
+          v-for="item in aboutPage.philosophy.items"
           :key="item.title"
-          class="flex items-start gap-4 rounded-card border border-border-subtle/60 bg-linear-to-b from-surface/80 to-surface2/60 p-5 shadow-soft"
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          :data-aos-delay="index * 150"
+          class="group flex items-start gap-4 rounded-card border border-white/[0.06] bg-surface/50 p-6 transition-colors duration-300 hover:border-primary/25 hover:bg-surface/70"
         >
-          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-surface2/80 ring-1 ring-border-subtle/60">
-            <Icon :name="item.icon" class="h-5 w-5 text-primary" />
+          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-primary/10 ring-1 ring-primary/20">
+            <UIcon :name="item.icon" class="h-[18px] w-[18px] text-primary"/>
           </div>
           <div>
-            <h3 class="text-sm font-semibold text-text-primary">
+            <h3 class="text-[15px] font-semibold text-text-primary">
               {{ item.title }}
             </h3>
-            <p class="mt-2 text-xs leading-relaxed text-text-secondary">
+            <p class="mt-2 text-sm leading-relaxed text-text-secondary">
               {{ item.description }}
             </p>
           </div>

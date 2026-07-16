@@ -1,41 +1,44 @@
 <script setup lang="ts">
 import {landingContent} from '#shared/content/landing'
-import FeatureCard from '~/sections/features/FeatureCard.vue'
+import FeatureBentoCard from '~/sections/features/FeatureBentoCard.vue'
 
 const {features} = landingContent
+
+// bento spans on a 6-column grid, keyed by visual
+const spanFor = (visual?: string) => {
+  switch (visual) {
+    case 'search':
+    case 'ai':
+      return 'sm:col-span-2 lg:col-span-4'
+    case 'context':
+    case 'sync':
+      return 'lg:col-span-3'
+    default:
+      return 'lg:col-span-2'
+  }
+}
 </script>
 
 <template>
-  <section id="features" class="relative bg-bg py-28 sm:py-32">
-    <!-- subtle background glow like the design -->
-    <div class="pointer-events-none absolute inset-0">
-      <div
-        class="absolute left-1/2 -top-65 h-225 w-225 -translate-x-1/2 rounded-full blur-3xl opacity-35"
-        style="background: radial-gradient(circle, rgba(97,95,255,.14), transparent 60%);"
-      />
-      <div class="absolute inset-0 bg-linear-to-b from-black/0 via-black/0 to-black/35"/>
-    </div>
-
+  <section id="features" class="relative border-t border-white/5 bg-bg py-20 sm:py-24">
     <div class="relative mx-auto max-w-6xl px-6">
-      <!-- Header -->
-      <div class="mx-auto max-w-3xl text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-        <h2 class="text-3xl font-semibold tracking-tight text-text-primary sm:text-5xl">
-          {{ features.headline }}
-        </h2>
-        <p class="mt-4 text-sm text-text-secondary sm:text-lg">
-          {{ features.subheadline }}
-        </p>
-      </div>
+      <SectionHeader
+        :eyebrow="features.eyebrow"
+        :title="features.headline"
+        :subtitle="features.subheadline"
+      />
 
-      <!-- Grid -->
-      <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-        <FeatureCard
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          :data-aos-delay="index * 200"
-          v-for="(feature, index) in features.items"
-          :key="feature.title + index"
+      <!-- Bento grid -->
+      <div
+        class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-6"
+        data-aos="fade-up"
+        data-aos-duration="600"
+      >
+        <FeatureBentoCard
+          v-for="feature in features.items"
+          :key="feature.title"
           :item="feature"
+          :class="spanFor(feature.visual)"
         />
       </div>
     </div>

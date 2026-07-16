@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type {PricingPlan} from '#shared/content/landing'
 import {landingContent} from '#shared/content/landing'
 import {useScrollToSection} from '#shared/composables/useScrollToSection'
 import PricingPlanCard from '~/sections/pricing/PricingPlanCard.vue'
@@ -8,12 +9,12 @@ const {scrollToSection} = useScrollToSection()
 const billingCycle = ref<'monthly' | 'annual'>('monthly')
 
 const plansByName = computed(() => {
-  const map = new Map<string, (typeof pricing.plans.items)[number]>()
+  const map = new Map<string, PricingPlan>()
   pricing.plans.items.forEach((plan) => map.set(plan.name, plan))
   return map
 })
 
-const visiblePlans = computed(() => {
+const visiblePlans = computed<PricingPlan[]>(() => {
   const free = plansByName.value.get('Free')
   const proMonthly = plansByName.value.get('Pro')
   const proAnnual = plansByName.value.get('Pro Annual')
@@ -21,7 +22,7 @@ const visiblePlans = computed(() => {
 
   const pro = billingCycle.value === 'annual' ? proAnnual : proMonthly
 
-  return [free, pro, lifetime].filter(Boolean)
+  return [free, pro, lifetime].filter((plan): plan is PricingPlan => !!plan)
 })
 
 const handleCta = async (href: string) => {
@@ -34,54 +35,55 @@ const handleCta = async (href: string) => {
 </script>
 
 <template>
-  <section id="plans" class="relative bg-bg py-24 text-text-primary sm:py-28">
-    <div class="pointer-events-none absolute inset-0">
-      <div
-        class="absolute left-1/2 -top-65 h-225 w-225 -translate-x-1/2 rounded-full blur-3xl opacity-30"
-        style="background: radial-gradient(circle, rgba(97,95,255,.14), transparent 60%);"
+  <section id="plans" class="relative border-t border-white/5 bg-bg py-20 text-text-primary sm:py-24">
+    <div class="relative mx-auto max-w-6xl px-6">
+      <SectionHeader
+        :eyebrow="pricing.plans.eyebrow"
+        :title="pricing.plans.headline"
+        :subtitle="pricing.plans.subheadline"
       />
-      <div class="absolute inset-0 bg-linear-to-b from-black/0 via-black/0 to-black/35"/>
-    </div>
 
-    <div class="relative mx-auto max-w-7xl px-6">
-      <div class="mx-auto max-w-3xl text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-        <h2 class="text-3xl font-semibold tracking-tight sm:text-5xl">
-          {{ pricing.plans.headline }}
-        </h2>
-        <p class="mt-4 text-sm text-text-secondary sm:text-lg">
-          {{ pricing.plans.subheadline }}
-        </p>
-      </div>
-
+      <!-- billing toggle -->
       <div class="mt-8 flex justify-center">
-        <UButtonGroup size="md" class="rounded-pill bg-surface2/80 p-1 ring-1 ring-border-subtle/60">
-          <UButton
-            :variant="billingCycle === 'monthly' ? 'solid' : 'ghost'"
-            color="primary"
-            class="rounded-pill px-5 py-2 text-sm font-semibold"
+        <div class="flex items-center gap-1 rounded-pill border border-white/10 bg-surface/60 p-1">
+          <button
+            type="button"
+            class="rounded-pill px-5 py-2 text-sm font-medium transition-colors"
+            :class="billingCycle === 'monthly'
+              ? 'bg-primary text-text-primary'
+              : 'text-text-secondary hover:text-text-primary'"
             @click="billingCycle = 'monthly'"
           >
             Monthly
-          </UButton>
-          <UButton
-            :variant="billingCycle === 'annual' ? 'solid' : 'ghost'"
-            color="primary"
-            class="rounded-pill px-5 py-2 text-sm font-semibold"
+          </button>
+          <button
+            type="button"
+            class="flex items-center gap-2 rounded-pill px-5 py-2 text-sm font-medium transition-colors"
+            :class="billingCycle === 'annual'
+              ? 'bg-primary text-text-primary'
+              : 'text-text-secondary hover:text-text-primary'"
             @click="billingCycle = 'annual'"
           >
             Yearly
-          </UButton>
-        </UButtonGroup>
+            <span
+              class="rounded-pill px-1.5 py-0.5 text-[10px] font-semibold"
+              :class="billingCycle === 'annual' ? 'bg-white/15 text-white' : 'bg-primary/10 text-primary'"
+            >
+              −21%
+            </span>
+          </button>
+        </div>
       </div>
 
-      <div class="mt-10 grid gap-6 lg:grid-cols-3 lg:gap-8">
+      <div
+        class="mt-10 grid gap-4 lg:grid-cols-3"
+        data-aos="fade-up"
+        data-aos-duration="600"
+      >
         <PricingPlanCard
-          v-for="(plan, index) in visiblePlans"
+          v-for="plan in visiblePlans"
           :key="plan.name"
           :plan="plan"
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          :data-aos-delay="index * 200"
           @cta="handleCta"
         />
       </div>

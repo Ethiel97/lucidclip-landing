@@ -24,12 +24,7 @@ const handleFooterLinkClick = async (href: string) => {
 </script>
 
 <template>
-  <footer class="relative bg-bg text-text-primary">
-    <!-- subtle bottom wash -->
-    <div class="pointer-events-none absolute inset-0">
-      <div class="absolute inset-0 bg-linear-to-b from-black/0 via-black/0 to-black/35"/>
-    </div>
-
+  <footer class="relative border-t border-white/5 bg-bg text-text-primary">
     <div class="relative mx-auto max-w-6xl px-6 pt-16 pb-10 sm:pt-20">
       <!-- Top content -->
       <div class="grid gap-10 lg:grid-cols-3 lg:gap-14">
@@ -48,7 +43,7 @@ const handleFooterLinkClick = async (href: string) => {
             <span class="text-lg font-semibold">LucidClip</span>
           </div>
 
-          <p class="mt-5 max-w-md text-md leading-relaxed text-text-secondary">
+          <p class="mt-5 max-w-md text-sm leading-relaxed text-text-secondary">
             {{ footer.tagline }}
           </p>
         </div>
@@ -60,7 +55,7 @@ const handleFooterLinkClick = async (href: string) => {
             :key="group.title"
             class="min-w-0 sm:min-w-45"
           >
-            <h3 class="text-smd font-semibold text-text-primary">
+            <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-text-muted">
               {{ group.title }}
             </h3>
 
@@ -69,7 +64,7 @@ const handleFooterLinkClick = async (href: string) => {
                 <a
                   :href="link.href"
                   @click.prevent="handleFooterLinkClick(link.href)"
-                  class="text-sm text-text-muted hover:text-text-primary transition-colors"
+                  class="text-sm text-text-secondary hover:text-text-primary transition-colors"
                 >
                   {{ link.label }}
                 </a>

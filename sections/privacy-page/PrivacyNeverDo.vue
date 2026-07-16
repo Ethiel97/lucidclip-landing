@@ -18,42 +18,24 @@ const titleParts = computed(() => {
 </script>
 
 <template>
-  <section class="relative bg-bg py-12 text-text-primary sm:py-16">
-    <div class="pointer-events-none absolute inset-0">
-      <div
-        class="absolute left-1/2 -top-60 h-225 w-225 -translate-x-1/2 rounded-full blur-3xl opacity-20"
-        style="background: radial-gradient(circle, rgba(97,95,255,.12), transparent 60%);"
-      />
-      <div class="absolute inset-0 bg-linear-to-b from-black/0 via-black/0 to-black/35"/>
-    </div>
-
-    <div class="relative mx-auto max-w-4xl px-6">
-      <h2 class="text-center text-xl font-semibold text-text-primary sm:text-2xl" data-aos="fade-up" data-aos-duration="1000">
+  <section class="relative border-t border-white/5 bg-bg py-14 text-text-primary sm:py-16">
+    <div class="relative mx-auto max-w-3xl px-6" data-aos="fade-up" data-aos-duration="600">
+      <h2 class="text-center font-display text-2xl font-semibold tracking-tight sm:text-3xl">
         {{ titleParts.before }}
         <span v-if="titleParts.emphasis" class="text-red-400">{{ titleParts.emphasis }}</span>
         <span v-if="titleParts.after">{{ titleParts.after }}</span>
       </h2>
 
-      <UCard
-        :ui="{ body: 'p-6 sm:p-8' }"
-        class="mt-8 border border-border-subtle/60 bg-linear-to-b from-surface/80 to-surface2/60 shadow-soft"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-delay="150"
-      >
-        <div class="grid gap-4 sm:grid-cols-2">
-          <div
-            v-for="(item, index) in privacyPage.neverDo.items"
-            :key="item + index"
-            class="flex items-start gap-3 text-sm text-text-secondary"
-          >
-            <span class="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-red-500/10 ring-1 ring-red-500/30">
-              <UIcon name="i-lucide-x" class="h-3.5 w-3.5 text-red-400" />
-            </span>
-            <span>{{ item }}</span>
-          </div>
+      <div class="mt-10 grid gap-x-8 gap-y-4 rounded-card border border-white/[0.06] bg-surface/40 p-7 sm:grid-cols-2 sm:p-8">
+        <div
+          v-for="item in privacyPage.neverDo.items"
+          :key="item"
+          class="flex items-start gap-2.5 text-sm text-text-secondary"
+        >
+          <UIcon name="i-lucide-x" class="mt-0.5 h-4 w-4 shrink-0 text-red-400/80"/>
+          <span>{{ item }}</span>
         </div>
-      </UCard>
+      </div>
     </div>
   </section>
 </template>

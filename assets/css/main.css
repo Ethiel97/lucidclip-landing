@@ -67,9 +67,45 @@
 /* Optional: base page background */
 html, body {
   background: var(--color-bg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 
   ::selection{
     background-color: var(--ui-primary);
     color: var(--ui-bg);
   }
+}
+
+/* ---------------------------------------------------------------- */
+/* LucidClip craft utilities                                        */
+/* ---------------------------------------------------------------- */
+
+/* Subtle dot grid — used once, in the hero */
+@utility bg-dots {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+/* Keyboard shortcut chip */
+@utility kbd {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.125rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.125rem 0.4rem;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+/* Gradient headline accent — stays on the brand ramp */
+@utility text-gradient-brand {
+  background: linear-gradient(100deg, #c2beff 0%, #9a8fff 45%, #615fff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }

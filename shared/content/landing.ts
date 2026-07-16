@@ -3,6 +3,8 @@ export interface CardModel {
   title: string,
   description: string,
   color?: string,
+  /** Bento micro-visual rendered above the copy (features grid only) */
+  visual?: 'search' | 'history' | 'context' | 'exclusions' | 'sync' | 'ai',
 }
 
 export type ProblemSolutionTone = 'problem' | 'solution';
@@ -51,17 +53,20 @@ export interface PricingContent {
     note: string
   }
   plans: {
+    eyebrow?: string
     headline: string
     subheadline: string
     items: PricingPlan[]
     footnote: string
   }
   highlights: {
+    eyebrow?: string
     headline: string
     subheadline: string
     items: CardModel[]
   }
   faq: {
+    eyebrow?: string
     headline: string
     subheadline: string
     items: PricingFaqItem[]
@@ -100,6 +105,7 @@ export interface DownloadInstallStep {
 
 export interface DownloadContent {
   hero: {
+    eyebrow?: string
     title: string
     subheadline: string
   }
@@ -130,6 +136,7 @@ export interface ComparisonRow {
 }
 
 export interface ComparisonContent {
+  eyebrow?: string
   headline: string
   subheadline: string
   columns: ComparisonColumn[]
@@ -186,6 +193,7 @@ export interface AboutFlutterContent {
 
 export interface AboutContent {
   hero: {
+    eyebrow?: string
     title: string
     subheadline: string
   }
@@ -220,6 +228,7 @@ export interface LandingContent {
     cta: string
   }
   hero: {
+    announcement: string
     headline: {
       primary: string,
       secondary: string
@@ -246,11 +255,13 @@ export interface LandingContent {
   },
 
   problemSolution: {
+    eyebrow?: string,
     items: Array<ProblemSolutionItem>,
     headline: string,
     subheadline: string,
   },
   features: {
+    eyebrow?: string
     headline: string
     subheadline: string
     items: Array<CardModel>,
@@ -267,6 +278,7 @@ export interface LandingContent {
 
   },
   privacy: {
+    eyebrow?: string
     headline: string
     subheadline: string
     features: Array<CardModel>
@@ -326,6 +338,7 @@ export const landingContent: LandingContent = {
     cta: 'Get LucidClip'
   },
   hero: {
+    announcement: 'Now available for macOS & Windows',
     headline: {primary: 'Your Clipboard, upgraded.', secondary: 'Private. Intelligent. Fast.'},
     subheadline:
       'Capture everything you copy, find it instantly, and let AI explain, summarize, or translate — all on your device.',
@@ -342,6 +355,7 @@ export const landingContent: LandingContent = {
 
 
   problemSolution: {
+    eyebrow: 'Why LucidClip',
     headline: 'Why default clipboards break focus',
     subheadline: 'And how LucidClip turns copy into usable memory.',
     items: [
@@ -405,44 +419,51 @@ export const landingContent: LandingContent = {
   },
 
   features: {
+    eyebrow: 'Features',
     headline: 'Features that stay out of your way',
     subheadline: 'Fast by default, intelligent when you need it.',
     items: [
       {
-        icon: 'lucide:clock',
-        title: 'Persistent History',
-        description:
-          'Everything you copy stays searchable and ready.'
-      },
-      {
         icon: 'lucide:search',
         title: 'Smart Search',
         description:
-          'Find any clip instantly with fast, fuzzy search.'
+          'Find any clip instantly with fast, fuzzy search.',
+        visual: 'search'
       },
       {
-        icon: 'lucide:layers',
-        title: 'App-Aware Context',
+        icon: 'lucide:clock',
+        title: 'Persistent History',
         description:
-          'Every clip keeps its origin so context never gets lost.'
+          'Everything you copy stays searchable and ready.',
+        visual: 'history'
       },
       {
         icon: 'lucide:shield',
         title: 'App Exclusions (Pro)',
         description:
-          'Block sensitive apps from ever entering history.'
-      },
-      {
-        icon: 'lucide:cloud',
-        title: 'Sync (Pro)',
-        description:
-          'Optional encrypted sync across devices.'
+          'Block sensitive apps from ever entering history.',
+        visual: 'exclusions'
       },
       {
         icon: 'lucide:sparkles',
         title: 'Clipboard AI (Pro)',
         description:
-          'Explain, summarize, and translate clipboard content instantly.'
+          'Explain, summarize, and translate clipboard content instantly.',
+        visual: 'ai'
+      },
+      {
+        icon: 'lucide:layers',
+        title: 'App-Aware Context',
+        description:
+          'Every clip keeps its origin so context never gets lost.',
+        visual: 'context'
+      },
+      {
+        icon: 'lucide:cloud',
+        title: 'Sync (Pro)',
+        description:
+          'Optional encrypted sync across devices.',
+        visual: 'sync'
       }
     ],
 
@@ -489,6 +510,7 @@ export const landingContent: LandingContent = {
 
 
   privacy: {
+    eyebrow: 'Privacy',
     headline: 'Privacy-first, always',
     subheadline: 'Your clipboard contains sensitive data. LucidClip keeps it local, controlled, and yours.',
     features: [
@@ -572,6 +594,7 @@ export const landingContent: LandingContent = {
       note: 'Cancel anytime. Lifetime available.'
     },
     plans: {
+      eyebrow: 'Plans',
       headline: 'Choose the plan that fits your flow',
       subheadline: 'Every plan includes fast search, app-aware context, and privacy-first defaults.',
       items: [
@@ -668,6 +691,7 @@ export const landingContent: LandingContent = {
       footnote: 'Early supporter pricing. Per user. macOS and Windows included.'
     },
     highlights: {
+      eyebrow: 'Peace of mind',
       headline: 'Everything stays fast and private',
       subheadline: 'Local-first architecture means your clipboard data is always yours.',
       items: [
@@ -689,6 +713,7 @@ export const landingContent: LandingContent = {
       ]
     },
     faq: {
+      eyebrow: 'FAQ',
       headline: 'Pricing FAQ',
       subheadline: 'Answers to the questions we hear most.',
       items: [
@@ -713,6 +738,7 @@ export const landingContent: LandingContent = {
   },
   download: {
     hero: {
+      eyebrow: 'Download',
       title: 'Download LucidClip',
       subheadline: 'Get started with your intelligent clipboard manager. Available for macOS and Windows, with Linux coming soon.'
     },
@@ -797,13 +823,14 @@ export const landingContent: LandingContent = {
         {
           title: "You're ready!",
           description: 'Press',
-          shortcut: '⌘/Ctrl + Shift + L',
+          shortcut: '⌘/Ctrl + Shift + V',
           suffix: 'to open your clipboard history.'
         }
       ]
     }
   },
   comparison: {
+    eyebrow: 'Comparison',
     headline: 'Built for clipboard-first workflows',
     subheadline:
       'Purpose-built for working memory, not a bundle of unrelated tools. Everything is optimized for speed and recall.',
@@ -947,6 +974,7 @@ export const landingContent: LandingContent = {
   },
   aboutPage: {
     hero: {
+      eyebrow: 'About',
       title: 'Built for people who live in the flow.',
       subheadline: "LucidClip was born from a simple frustration: existing clipboard managers weren't built for clipboard-first workflows."
     },

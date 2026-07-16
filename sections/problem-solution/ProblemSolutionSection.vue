@@ -6,24 +6,21 @@ const {problemSolution} = landingContent
 </script>
 
 <template>
-  <section class="relative bg-bg text-textPrimary">
-    <!-- Background glow -->
-    <div class="pointer-events-none absolute inset-0">
-      <div
-        class="absolute left-1/2 -top-65 h-225 w-225 -translate-x-1/2 rounded-full blur-3xl opacity-40"
-        style="background: radial-gradient(circle, rgba(97,95,255,.18), transparent 60%);"
+  <section class="relative border-t border-white/5 bg-bg text-text-primary">
+    <div class="relative mx-auto max-w-6xl px-6 py-20 sm:py-24 lg:py-28">
+      <SectionHeader
+        :eyebrow="problemSolution.eyebrow"
+        :title="problemSolution.headline"
+        :subtitle="problemSolution.subheadline"
       />
-      <div class="absolute inset-0 bg-linear-to-b from-black/0 to-black/35"/>
-    </div>
 
-    <div class="relative mx-auto max-w-6xl px-6 py-20 sm:py-28 lg:py-36">
-      <div class="mx-auto grid max-w-5xl gap-10 lg:grid-cols-2 lg:gap-12">
+      <div class="mx-auto mt-14 grid max-w-5xl gap-6 lg:grid-cols-2 lg:gap-8">
         <ProblemSolutionCard
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          :data-aos-delay="index * 200"
           v-for="(card, index) in problemSolution.items"
           :key="card.title"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          :data-aos-delay="index * 100"
           :model="card"
         />
       </div>

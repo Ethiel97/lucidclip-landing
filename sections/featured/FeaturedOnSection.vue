@@ -5,35 +5,31 @@ const {featuredOn} = landingContent
 </script>
 
 <template>
-  <section class="relative bg-bg py-12 text-text-primary sm:py-16">
-    <div class="pointer-events-none absolute inset-0">
-      <div
-        class="absolute left-1/2 -top-56 h-225 w-225 -translate-x-1/2 rounded-full blur-3xl opacity-25"
-        style="background: radial-gradient(circle, rgba(97,95,255,.12), transparent 60%);"
-      />
-      <div class="absolute inset-0 bg-linear-to-b from-black/0 via-black/0 to-black/35"/>
-    </div>
-
+  <section class="relative bg-bg py-14 text-text-primary">
     <div class="relative mx-auto max-w-5xl px-6">
-      <h2 class="text-center text-xs font-semibold uppercase tracking-[0.3em] text-text-muted" data-aos="fade-up" data-aos-duration="1000">
-        {{ featuredOn.title }}
-      </h2>
+      <div class="flex items-center gap-6" data-aos="fade-up" data-aos-duration="600">
+        <span class="h-px flex-1 bg-linear-to-r from-transparent to-border-subtle"/>
+        <h2 class="shrink-0 text-[11px] font-semibold uppercase tracking-[0.3em] text-text-muted">
+          {{ featuredOn.title }}
+        </h2>
+        <span class="h-px flex-1 bg-linear-to-l from-transparent to-border-subtle"/>
+      </div>
 
-      <div class="mt-8 flex flex-wrap items-center justify-center gap-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
         <a
           v-for="item in featuredOn.items"
           :key="item.label"
           :href="item.href"
           target="_blank"
           rel="noreferrer"
-          class="flex items-center justify-center rounded-xl border border-border-subtle/60 bg-surface/70 px-4 py-3 shadow-soft transition hover:-translate-y-0.5 hover:border-border-subtle/80"
+          class="opacity-50 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
         >
           <img
             :src="item.image.src"
             :alt="item.image.alt"
             :width="item.image.width"
             :height="item.image.height"
-            class="h-12 w-auto"
+            class="h-11 w-auto"
             loading="lazy"
           />
         </a>
