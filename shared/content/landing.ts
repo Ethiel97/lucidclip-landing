@@ -534,7 +534,7 @@ export const landingContent: LandingContent = {
     social: [
       // {icon: 'simple-icons:x', href: 'https://x.com/lucidclip', label: 'X (Twitter)'},
       // {icon: 'simple-icons:github', href: 'https://github.com/lucidclip', label: 'GitHub'},
-      {icon: 'simple-icons:discord', href: 'https://discord.gg/35VtgByT', label: 'Join LucidClip lab'}
+      {icon: 'simple-icons:discord', href: 'https://discord.gg/csbBSrhy6w', label: 'Join LucidClip lab'}
     ],
     copyright: `© ${new Date().getFullYear()} LucidClip. All rights reserved.`
   },
